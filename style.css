@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3C3A39;
+  padding: 20px;
+  color: white;
+}
+
+.logo h3 a{
+  text-decoration: none;
+  color: white;
+}
+
+nav .navlinks {
+  display: none;
+}
