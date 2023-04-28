@@ -15,12 +15,12 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  color: #28352F;
+  color: #28352f;
 }
 
-.logo h3 a{
+.logo h3 a {
   text-decoration: none;
-  color: #28352F;
+  color: #28352f;
 }
 
 .nav-icon {
@@ -45,15 +45,15 @@ main h1 {
 }
 
 main h1:first-child {
-  color: #172B4D;
+  color: #172b4d;
 }
 
 main h1:nth-child(2) {
-  color: #36B37E;
+  color: #36b37e;
 }
 
 main p {
-  color: #172B4D;
+  color: #172b4d;
   font-size: 20px;
   text-align: center;
 }
@@ -72,5 +72,5 @@ main p {
 
 .social ul li a {
   text-decoration: none;
-  color: #505F79;
+  color: #505f79;
 }
