@@ -3,9 +3,7 @@
 <div align="center">
   <img src="./mine.jpeg" alt="logo" width="140"  height="auto" />
   <br/>
-
   <h3><b>My Personal Portfolio</b></h3>
-
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -88,9 +86,7 @@ To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
-
- study the project's HTML and CSS code to learn the fundamentals and setup of the project.
+In order to run this project you need to study the project's HTML and CSS code to learn the fundamentals and setup of the project.
 
 ### Setup
 
