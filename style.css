@@ -5,21 +5,22 @@
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
+
+/* Navbar Styles */
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #3C3A39;
   padding: 20px 40px;
-  color: white;
+  color: #28352F;
 }
 
 .logo h3 a{
   text-decoration: none;
-  color: white;
+  color: #28352F;
 }
 
 .nav-icon {
@@ -27,38 +28,49 @@ nav {
   cursor: pointer;
 }
 
-.navlinks ul {
+/* Hero Section */
+
+main {
+  background: url(./assets/bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 90px 24px;
+}
+
+main h1 {
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  margin: 6px 0;
+}
+
+main h1:first-child {
+  color: #172B4D;
+}
+
+main h1:nth-child(2) {
+  color: #36B37E;
+}
+
+main p {
+  color: #172B4D;
+  font-size: 20px;
+  text-align: center;
+}
+
+.social ul {
   display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-top: 18px;
+  justify-content: center;
+}
+
+.social ul li {
   list-style: none;
 }
 
-.navlinks li {
-  margin: 0 10px;
-}
-
-.navlinks a {
+.social ul li a {
   text-decoration: none;
-  color: white;
-  font-size: 16px;
-}
-
-.navlinks {
-  display: none;
-}
-
-@media screen and (min-width: 769px) {
-  nav {
-    padding: 20px 100px;
-  }
-  .nav-icon {
-    display: none;
-  }
-  
-  .navlinks {
-    display: block;
-  }
-
-  .navlinks li {
-    padding: 0 20px;
-  }
+  color: #505F79;
 }
