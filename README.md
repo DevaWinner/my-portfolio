@@ -1,7 +1,7 @@
 <a name="MY PORTFOLIO"></a>
 
 <div align="center">
-  <img src="../assets/mine.jpg" alt="logo" width="140"  height="auto" />
+  <img src="./assets/mine.jpg" alt="logo" width="140"  height="auto" />
   <br/>
   <h3><b>My Personal Portfolio</b></h3>
 </div>
