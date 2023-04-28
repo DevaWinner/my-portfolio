@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Navbar Styles */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  color: #28352f;
+}
+
+.logo h3 a {
+  text-decoration: none;
+  color: #28352f;
+}
+
+.nav-icon {
+  display: block;
+  cursor: pointer;
+}
+
+/* Hero Section */
+
+main {
+  background: url(./assets/bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 90px 24px;
+}
+
+main h1 {
+  font-weight: 700;
+  font-size: 40px;
+  text-align: center;
+  margin: 6px 0;
+}
+
+main h1:first-child {
+  color: #172b4d;
+}
+
+main h1:nth-child(2) {
+  color: #36b37e;
+}
+
+main p {
+  color: #172b4d;
+  font-size: 20px;
+  text-align: center;
+}
+
+.social ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-top: 18px;
+  justify-content: center;
+}
+
+.social ul li {
+  list-style: none;
+}
+
+.social ul li a {
+  text-decoration: none;
+  color: #505f79;
+}
