@@ -33,9 +33,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [Personal_Project] <a name="about-project"></a>
+# 📖 [My_Portfolio] <a name="about-project"></a>
 
-**My Personal Project** is a simple yet responsive portfolio page. The goal of this project is to practice HTML and CSS by creating a my own personal portfolio. I will be updating and improving on this project as I progress in my journey.
+**My Portfolio** is a simple yet responsive portfolio page. The goal of this project is to practice HTML and CSS by creating a my own personal portfolio. I will be updating and improving on this project as I progress in my journey.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -120,7 +120,7 @@ Clone this repository to your desired folder:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - [ ] **A Landing Page**
-- [ ] ****
+- [ ] **A Hero Session**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
