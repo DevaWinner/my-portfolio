@@ -101,14 +101,13 @@ main p {
   color: var(--blue-main);
 }
 
-.work-heading hr {
+hr {
   width: 20%;
   margin: 18px auto 40px auto;
   border: none;
   height: 5px;
   border-radius: 50px;
   background-color: var(--green-color);
-  margin-top: 18px;
 }
 
 .card-container {
@@ -163,7 +162,7 @@ main p {
   margin: 30px;
 }
 
-.project-button button {
+button {
   padding: 12px;
   background-color: var(--green-color);
   border: none;
@@ -175,3 +174,140 @@ main p {
 }
 
 /*================== About me ===================*/
+
+/* About me heading and resume */
+.about-me {
+  margin-top: 64px;
+}
+
+.about-heading {
+  padding: 24px;
+  text-align: center;
+}
+
+.about-heading h1 {
+  text-align: center;
+  color: var(--blue-main);
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.about-heading>p {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--blue-main);
+  margin-top: 24px
+}
+
+.about-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+/* Skills Stack */
+
+.skills {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.skills-item {
+  height: 316px;
+  background-color: var(--gray);
+  margin: 24px;
+  border-radius: 8px;
+  padding: 24px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.lang-stack ul {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.lang-stack ul li {
+  list-style: none;
+  background-color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-size: 12px;
+  color: var(--blue-main);
+  font-weight: 600;
+  border-radius: 8px;
+  color: var(--green-color);
+}
+
+/* Contact me */
+
+.contact-me h1 {
+  font-size: 35px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 24px;
+}
+
+form input {
+  height: 48px;
+  padding-left: 10px;
+  font-style: italic;
+}
+
+textarea {
+  padding: 10px;
+  height: 114px;
+}
+
+.form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.email {
+  text-align: center;
+  margin: 24px;
+}
+
+.email .social {
+  margin-top:40px;
+}
+
+/* Unframed vectors */
+
+.vector {
+  position: absolute;
+  align-items: center;
+  display: flex;
+}
+
+.vector1 {
+  right: 0;
+  justify-content: flex-end;
+}
+
+.vector2 {
+  left: 0;
+  justify-content: flex-start;
+}
