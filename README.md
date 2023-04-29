@@ -1,7 +1,7 @@
 <a name="MY PORTFOLIO"></a>
 
 <div align="center">
-  <img src="../assets/mine.jpg" alt="logo" width="140"  height="auto" />
+  <img src="./assets/mine.jpg" alt="logo" width="140"  height="auto" />
   <br/>
   <h3><b>My Personal Portfolio</b></h3>
 </div>
@@ -74,7 +74,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://google.com)
+- coming soon...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
