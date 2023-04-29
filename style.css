@@ -94,7 +94,7 @@ main {
 
 /* =============== Works Section ================ */
 
-.work-heading h1 {
+.work-heading > h1 {
   text-align: center;
   font-size: 35px;
   font-weight: 700;
@@ -134,7 +134,7 @@ hr {
   border-radius: 8px 8px 5px 5px;
 }
 
-.card div h1 {
+.card div > h1 {
   text-align: center;
   margin-top: 16px;
   color: rgba(58, 74, 66, 1);
@@ -185,7 +185,7 @@ button {
   text-align: center;
 }
 
-.about-heading h1 {
+.about-heading > h1 {
   text-align: center;
   color: var(--blue-main);
   font-size: 40px;
@@ -257,7 +257,7 @@ button {
 
 /* Contact me */
 
-.contact-me h1 {
+.contact-me > h1 {
   font-size: 35px;
 }
 
@@ -291,7 +291,7 @@ textarea {
 }
 
 .email .social {
-  margin-top:40px;
+  margin-top: 40px;
 }
 
 /* Unframed vectors */
