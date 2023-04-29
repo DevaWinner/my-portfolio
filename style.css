@@ -51,11 +51,11 @@ main {
   margin: 6px 0;
 }
 
-.introduction h1:first-child {
+.intro {
   color: var(--blue-main);
 }
 
-.introduction h1:nth-child(2) {
+.intro1 {
   color: var(--green-color);
 }
 
@@ -185,7 +185,7 @@ button {
   text-align: center;
 }
 
-.about-heading > h1 {
+.about-title {
   text-align: center;
   color: var(--blue-main);
   font-size: 40px;
@@ -257,7 +257,7 @@ button {
 
 /* Contact me */
 
-.contact-me > h1 {
+.contact-me .about-heading {
   font-size: 35px;
 }
 
@@ -272,11 +272,13 @@ form input {
   height: 48px;
   padding-left: 10px;
   font-style: italic;
+  border-color: 1px solid var(--gray);
 }
 
 textarea {
   padding: 10px;
   height: 114px;
+  border-color: var(--green-color);
 }
 
 .form-button {
