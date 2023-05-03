@@ -41,7 +41,7 @@ nav {
   background: url(./assets/bg.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 80px 24px;
+  padding: 100px 24px;
 }
 
 .introduction h1 {
@@ -258,29 +258,12 @@ button {
 /* Contact me */
 
 
-/* Unframed vectors */
-
-.vector {
-  position: absolute;
-  align-items: center;
-  display: flex;
-}
-
-.vector1 {
-  right: 0;
-  justify-content: flex-end;
-}
-
-.vector2 {
-  left: 0;
-  justify-content: flex-start;
-}
-
 footer {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 0px 2rem;
+  margin: 2em 0;
 }
 
 footer h1 {
@@ -330,5 +313,28 @@ form ul {
 }
 
 .footer-btn {
-  margin: auto !important;
+ display: flex;
+ justify-content: center;
+}
+
+.footer-btn button:hover {
+  
+}
+
+/* Unframed vectors */
+
+.vector {
+  position: absolute;
+  align-items: center;
+  display: flex;
+}
+
+.vector1 {
+  right: 0;
+  justify-content: flex-end;
+}
+
+.vector2 {
+  left: 0;
+  justify-content: flex-start;
 }
