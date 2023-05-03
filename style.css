@@ -94,7 +94,7 @@ nav {
 
 /* =============== Works Section ================ */
 
-.work-heading > h1 {
+.work-heading>h1 {
   text-align: center;
   font-size: 35px;
   font-weight: 700;
@@ -134,7 +134,7 @@ hr {
   border-radius: 8px 8px 5px 5px;
 }
 
-.card div > h1 {
+.card div>h1 {
   text-align: center;
   margin-top: 16px;
   color: rgba(58, 74, 66, 1);
@@ -192,7 +192,7 @@ button {
   font-weight: 700;
 }
 
-.about-heading > p {
+.about-heading>p {
   text-align: center;
   font-size: 20px;
   font-weight: 400;
@@ -274,4 +274,61 @@ button {
 .vector2 {
   left: 0;
   justify-content: flex-start;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0px 2rem;
+}
+
+footer h1 {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 52px;
+  text-align: center;
+  color: #172B4D;
+}
+
+footer p {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  text-align: center;
+  color: #42526E;
+}
+
+form ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+}
+
+.input {
+  padding: 1rem;
+  width: 100%;
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #6B778C;
+  border: 1px solid #D0D9D4;
+  border-radius: 4px;
+}
+
+.textarea {
+  font-style: normal;
+}
+
+.footer-btn {
+  margin: auto !important;
 }
