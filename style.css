@@ -257,44 +257,6 @@ button {
 
 /* Contact me */
 
-.contact-me .about-heading {
-  font-size: 35px;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  padding: 24px;
-  gap: 24px;
-}
-
-form input {
-  height: 48px;
-  padding-left: 10px;
-  font-style: italic;
-  border-color: 1px solid var(--gray);
-}
-
-textarea {
-  padding: 10px;
-  height: 114px;
-  border-color: var(--green-color);
-}
-
-.form-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.email {
-  text-align: center;
-  margin: 24px;
-}
-
-.email .social {
-  margin-top: 40px;
-}
 
 /* Unframed vectors */
 
