@@ -15,7 +15,7 @@ html {
   --gray: rgba(235, 240, 238, 1);
 }
 
-/* ================ Navbar Styles ================= */
+/*================ Navbar Styles =================*/
 
 nav {
   display: flex;
@@ -35,7 +35,7 @@ nav {
   cursor: pointer;
 }
 
-/* ================== Hero Section ================ */
+/*================== Hero Section ================*/
 
 .headline {
   background: url(./assets/bg.svg);
@@ -92,7 +92,7 @@ nav {
   color: var(--blue-main);
 }
 
-/* =============== Works Section ================ */
+/*=============== Works Section ================*/
 
 .work-heading>h1 {
   text-align: center;
@@ -173,7 +173,7 @@ button {
   cursor: pointer;
 }
 
-/* ================== About me =================== */
+/*================== About me ===================*/
 
 /* About me heading and resume */
 .about-me {
@@ -255,7 +255,7 @@ button {
   color: var(--green-color);
 }
 
-/* Contact me */
+/*============== Contact me ================*/
 
 
 footer {
@@ -317,11 +317,7 @@ form ul {
  justify-content: center;
 }
 
-.footer-btn button:hover {
-  
-}
-
-/* Unframed vectors */
+/*============= Unframed vectors =============*/
 
 .vector {
   position: absolute;
