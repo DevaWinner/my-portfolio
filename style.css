@@ -25,14 +25,38 @@ nav {
   color: var(--blue-color);
 }
 
-.logo h3 a {
+.logo a, .nav-links li a {
   text-decoration: none;
   color: var(--blue-color);
+  font-size: 24px;
+  font-weight: 550;
 }
 
 .nav-icon {
   display: block;
   cursor: pointer;
+}
+
+.nav-links {
+  display: none;
+}
+
+/* Desktop Version */
+
+@media (min-width: 768px) {
+
+  nav {
+    justify-content: space-around;
+  }
+  .nav-icon i {
+    display: none;
+  }
+
+ .nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+ }
 }
 
 /* ================== Hero Section ================ */
@@ -42,6 +66,11 @@ nav {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 100px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
 }
 
 .introduction h1 {
@@ -90,6 +119,39 @@ nav {
 
 .scroll-down i {
   color: var(--blue-main);
+}
+
+/* Desktop Version */
+
+@media (min-width: 768px) {
+
+  .top {
+    background: url(./assets/desktop-header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1407.45px;
+  }
+  
+  .logo {
+    display: none;
+  }
+
+  .headline {
+    background: none;
+    margin-top: 10em;
+  }
+  .introduction br {
+    display: none;
+  }
+
+  .intro, .intro1 {
+    font-size: 48px;
+  }
+
+  .introduction p {
+    max-width: 920px;
+    padding: 10 75px;
+  }
 }
 
 /* =============== Works Section ================ */
@@ -171,6 +233,17 @@ button {
   font-size: 17px;
   font-weight: 500;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+
+  main {
+    padding: 80px 0 0 0;
+  }
+
+  .works br {
+    display: none;
+  }
 }
 
 /* ================== About me =================== */
@@ -333,3 +406,6 @@ button {
   left: 0;
   justify-content: flex-start;
 }
+
+/* ============ Desktop Screen ============= */
+
