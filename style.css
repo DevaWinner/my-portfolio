@@ -15,7 +15,7 @@ html {
   --gray: rgba(235, 240, 238, 1);
 }
 
-/*================ Navbar Styles =================*/
+/* ================ Navbar Styles ================= */
 
 nav {
   display: flex;
@@ -35,7 +35,7 @@ nav {
   cursor: pointer;
 }
 
-/*================== Hero Section ================*/
+/* ================== Hero Section ================ */
 
 .headline {
   background: url(./assets/bg.svg);
@@ -92,9 +92,9 @@ nav {
   color: var(--blue-main);
 }
 
-/*=============== Works Section ================*/
+/* =============== Works Section ================ */
 
-.work-heading>h1 {
+.work-heading > h1 {
   text-align: center;
   font-size: 35px;
   font-weight: 700;
@@ -134,7 +134,7 @@ hr {
   border-radius: 8px 8px 5px 5px;
 }
 
-.card div>h1 {
+.card div > h1 {
   text-align: center;
   margin-top: 16px;
   color: rgba(58, 74, 66, 1);
@@ -173,7 +173,7 @@ button {
   cursor: pointer;
 }
 
-/*================== About me ===================*/
+/* ================== About me =================== */
 
 /* About me heading and resume */
 .about-me {
@@ -192,7 +192,7 @@ button {
   font-weight: 700;
 }
 
-.about-heading>p {
+.about-heading > p {
   text-align: center;
   font-size: 20px;
   font-weight: 400;
@@ -255,35 +255,31 @@ button {
   color: var(--green-color);
 }
 
-/*============== Contact me ================*/
+/* ============== Contact me ================ */
 
-
-footer {
+.footer {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding: 0px 2rem;
-  margin: 2em 0;
+  margin: 2em;
 }
 
-footer h1 {
-  font-family: 'Inter';
-  font-style: normal;
+.footer h1 {
+  font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 40px;
   line-height: 52px;
   text-align: center;
-  color: #172B4D;
+  color: var(--blue-main);
 }
 
-footer p {
-  font-family: 'Inter';
-  font-style: normal;
+.footer p {
+  font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
-  line-height: 32px;
   text-align: center;
-  color: #42526E;
+  color: var(--blue-main);
 }
 
 form ul {
@@ -296,15 +292,15 @@ form ul {
 .input {
   padding: 1rem;
   width: 100%;
-  font-family: 'Inter';
+  font-family: 'Inter' sans-serif;
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
   line-height: 24px;
   display: flex;
   align-items: center;
-  color: #6B778C;
-  border: 1px solid #D0D9D4;
+  color: #6b778c;
+  border: 1px solid #d0d9d4;
   border-radius: 4px;
 }
 
@@ -317,7 +313,7 @@ form ul {
  justify-content: center;
 }
 
-/*============= Unframed vectors =============*/
+/* ============= Unframed vectors ============= */
 
 .vector {
   position: absolute;
