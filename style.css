@@ -257,7 +257,7 @@ button {
 
 /* ============== Contact me ================ */
 
-.footer {
+.contact {
   display: flex;
   flex-direction: column;
   gap: 2rem;
