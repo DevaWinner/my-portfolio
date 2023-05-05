@@ -261,11 +261,11 @@ button {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding: 0px 2rem;
+  padding: 0rem 2rem;
   margin: 2em;
 }
 
-.footer h1 {
+.contact-heading {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 40px;
@@ -282,7 +282,7 @@ button {
   color: var(--blue-main);
 }
 
-form ul {
+.contact-form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -292,7 +292,7 @@ form ul {
 .input {
   padding: 1rem;
   width: 100%;
-  font-family: 'Inter' sans-serif;
+  font-family: 'Inter', sans-serif;
   font-style: italic;
   font-weight: 400;
   font-size: 15px;
@@ -309,8 +309,8 @@ form ul {
 }
 
 .footer-btn {
- display: flex;
- justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* ============= Unframed vectors ============= */
