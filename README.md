@@ -142,7 +142,7 @@ If you like this project, kindly share my portfolio with your friends and collea
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Marie Grace and Jimmy Mohamed my learning partners for their support.
+I would like to thank Arsene Thierry and Abdi Nasir Daud my coding partners who contributed their efforts to my footer session.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
