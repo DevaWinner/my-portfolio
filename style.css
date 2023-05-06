@@ -275,6 +275,10 @@ button {
 .contact {
   display: flex;
   flex-direction: column;
+  background: url(./assets/Frame.png);
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: auto;
 }
 
 .contact-heading {
@@ -324,6 +328,7 @@ button {
 .footer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 /* ============ Desktop Screen ============= */
@@ -425,7 +430,6 @@ button {
 
   .contact {
     flex-direction: row;
-    align-items: flex-start;
     padding: 0 135px 200px 135px;
     gap: 24px;
     margin-top: 80px;
@@ -449,6 +453,7 @@ button {
   }
 
   /* Footer */
+
   .footer {
     padding: 16px 0;
     border-top: 1px solid #dfe1e6;
