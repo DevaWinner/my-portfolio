@@ -6,7 +6,7 @@
 }
 
 html {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 :root {
@@ -283,7 +283,7 @@ button {
 }
 
 .contact-heading {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 40px;
   text-align: center;
@@ -302,7 +302,7 @@ button {
 .input {
   padding: 1rem;
   width: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: italic;
   font-size: 15px;
   color: #6b778c;
@@ -320,7 +320,7 @@ button {
 .contact-email {
   display: flex;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 20px;
   color: var(--blue-main);
@@ -495,4 +495,18 @@ input:hover::placeholder {
   padding: 10px;
   border-radius: 5px;
   padding: 10px;
+}
+
+#rotated {
+  animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(2turn);
+  }
 }
