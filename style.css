@@ -2,10 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 :root {
@@ -185,14 +186,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #a1e6c4; /* lighter */
-}
-
-button:active {
-  background-color: #268455; /* darker */
-}
-
 /* ================== About me =================== */
 
 /* About me heading and resume */
@@ -290,7 +283,7 @@ button:active {
 }
 
 .contact-heading {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 40px;
   text-align: center;
@@ -309,7 +302,7 @@ button:active {
 .input {
   padding: 1rem;
   width: 100%;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: italic;
   font-size: 15px;
   color: #6b778c;
@@ -327,7 +320,7 @@ button:active {
 .contact-email {
   display: flex;
   justify-content: center;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 400;
   font-size: 20px;
   color: var(--blue-main);
@@ -465,5 +458,55 @@ button:active {
   .footer {
     padding: 16px 0;
     border-top: 1px solid #dfe1e6;
+  }
+}
+
+/* =============Animations================= */
+
+button:hover {
+  background-color: #a1e6c4; /* lighter */
+}
+
+button:active {
+  background-color: #268455; /* darker */
+}
+
+input::placeholder {
+  transition: transform 0.2s ease-out;
+}
+
+input:hover::placeholder {
+  transform: translateX(10px);
+}
+
+.card:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-out;
+}
+
+.skills-item:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-out;
+}
+
+.hover:hover {
+  background-color: #268455;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+#rotated {
+  animation: rotation 4s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0turn);
+  }
+
+  to {
+    transform: rotate(2turn);
   }
 }
