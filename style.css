@@ -185,6 +185,14 @@ button {
   cursor: pointer;
 }
 
+button:hover {
+  background-color: #a1e6c4; /* lighter */
+}
+
+button:active {
+  background-color: #268455; /* darker */
+}
+
 /* ================== About me =================== */
 
 /* About me heading and resume */
