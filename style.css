@@ -25,7 +25,8 @@ nav {
   color: var(--blue-color);
 }
 
-.logo a, .nav-links li a {
+.logo a,
+.nav-links li a {
   text-decoration: none;
   color: var(--blue-color);
   font-size: 24px;
@@ -328,25 +329,25 @@ button {
 /* ============ Desktop Screen ============= */
 
 @media (min-width: 768px) {
-
   /* Navigation */
 
   nav {
     justify-content: space-around;
   }
+  
   .nav-icon i {
     display: none;
   }
 
- .nav-links {
-  display: flex;
-  gap: 24px;
-  list-style: none;
- }
+  .nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+   }
+   
+  /* Hero Section */
 
- /* Hero Section */
-
- .top {
+  .top {
     background: url(./assets/desktop-header.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -361,6 +362,7 @@ button {
     background: none;
     margin-top: 10em;
   }
+  
   .introduction br {
     display: none;
   }
