@@ -185,14 +185,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #a1e6c4; /* lighter */
-}
-
-button:active {
-  background-color: #268455; /* darker */
-}
-
 /* ================== About me =================== */
 
 /* About me heading and resume */
@@ -466,4 +458,22 @@ button:active {
     padding: 16px 0;
     border-top: 1px solid #dfe1e6;
   }
+}
+
+/* =============Animations================= */
+
+button:hover {
+  background-color: #a1e6c4; /* lighter */
+}
+
+button:active {
+  background-color: #268455; /* darker */
+}
+
+input::placeholder {
+  transition: transform 0.2s ease-out;
+}
+
+input:hover::placeholder {
+  transform: translateX(10px);
 }
