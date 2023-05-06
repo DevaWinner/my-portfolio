@@ -334,7 +334,7 @@ button {
   nav {
     justify-content: space-around;
   }
-  
+
   .nav-icon i {
     display: none;
   }
@@ -343,8 +343,8 @@ button {
     display: flex;
     gap: 24px;
     list-style: none;
-   }
-   
+  }
+
   /* Hero Section */
 
   .top {
@@ -353,7 +353,7 @@ button {
     background-size: cover;
     height: 1407.45px;
   }
-  
+
   .logo {
     display: none;
   }
@@ -362,12 +362,13 @@ button {
     background: none;
     margin-top: 10em;
   }
-  
+
   .introduction br {
     display: none;
   }
 
-  .intro, .intro1 {
+  .intro,
+  .intro1 {
     font-size: 48px;
   }
 
@@ -408,12 +409,12 @@ button {
   }
 
   .about-heading p {
-    Width: 920px;
+    width: 920px;
     padding: 0 75px;
   }
 
   /* Skills Stack */
-  
+
   .skills {
     grid-template-rows: none;
     grid-template-columns: repeat(3, 1fr);
@@ -421,7 +422,7 @@ button {
   }
 
   /* Contact Me */
-  
+
   .contact {
     flex-direction: row;
     align-items: flex-start;
@@ -431,21 +432,21 @@ button {
     background-image: url("./assets/Group\ 72.png");
     background-size: cover;
     background-repeat: no-repeat;
-   }
-  
-   .contact-heading {
+  }
+
+  .contact-heading {
     font-size: 30px;
-    max-Width: 463px;
+    max-width: 463px;
     align-self: center;
-   }
-  
-   .contact-item {
-     flex: 2;
-   }
-   
-   .footer-btn {
-     justify-content: flex-start;
-   }
+  }
+
+  .contact-item {
+    flex: 2;
+  }
+
+  .footer-btn {
+    justify-content: flex-start;
+  }
 
   /* Footer */
   .footer {
