@@ -41,24 +41,6 @@ nav {
   display: none;
 }
 
-/* Desktop Version */
-
-@media (min-width: 768px) {
-
-  nav {
-    justify-content: space-around;
-  }
-  .nav-icon i {
-    display: none;
-  }
-
- .nav-links {
-  display: flex;
-  gap: 24px;
-  list-style: none;
- }
-}
-
 /* ================== Hero Section ================ */
 
 .headline {
@@ -119,39 +101,6 @@ nav {
 
 .scroll-down i {
   color: var(--blue-main);
-}
-
-/* Desktop Version */
-
-@media (min-width: 768px) {
-
-  .top {
-    background: url(./assets/desktop-header.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 1407.45px;
-  }
-  
-  .logo {
-    display: none;
-  }
-
-  .headline {
-    background: none;
-    margin-top: 10em;
-  }
-  .introduction br {
-    display: none;
-  }
-
-  .intro, .intro1 {
-    font-size: 48px;
-  }
-
-  .introduction p {
-    max-width: 920px;
-    padding: 10 75px;
-  }
 }
 
 /* =============== Works Section ================ */
@@ -235,27 +184,19 @@ button {
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
-
-  main {
-    padding: 80px 0 0 0;
-  }
-
-  .works br {
-    display: none;
-  }
-}
-
 /* ================== About me =================== */
 
 /* About me heading and resume */
-.about-me {
-  margin-top: 64px;
-}
 
 .about-heading {
   padding: 24px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("./assets/vector2.png"), url("./assets/vector1.png");
+  background-position: left bottom, right top;
+  background-repeat: no-repeat;
 }
 
 .about-title {
@@ -282,9 +223,9 @@ button {
 /* Skills Stack */
 
 .skills {
-  display: flex;
-  flex-direction: column;
-  padding: 0;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .skills-item {
@@ -330,29 +271,16 @@ button {
 
 /* ============== Contact me ================ */
 
-.footer {
+.contact {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  padding: 2em;
-  margin: 2em;
 }
 
 .contact-heading {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 40px;
-  line-height: 52px;
   text-align: center;
-  color: var(--blue-main);
-}
-
-.contact-email {
-  display: flex;
-  justify-content: center;
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-  font-size: 20px;
   color: var(--blue-main);
 }
 
@@ -370,18 +298,10 @@ button {
   width: 100%;
   font-family: 'Inter', sans-serif;
   font-style: italic;
-  font-weight: 400;
   font-size: 15px;
-  line-height: 24px;
-  display: flex;
-  align-items: center;
   color: #6b778c;
   border: 1px solid #d0d9d4;
   border-radius: 4px;
-}
-
-.textarea {
-  font-style: normal;
 }
 
 .footer-btn {
@@ -389,23 +309,145 @@ button {
   justify-content: center;
 }
 
-/* ============= Unframed vectors ============= */
+/* Footer */
 
-.vector {
-  position: absolute;
-  align-items: center;
+.contact-email {
   display: flex;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--blue-main);
 }
 
-.vector1 {
-  right: 0;
-  justify-content: flex-end;
-}
-
-.vector2 {
-  left: 0;
-  justify-content: flex-start;
+.footer {
+  display: flex;
+  flex-direction: column;
 }
 
 /* ============ Desktop Screen ============= */
 
+@media (min-width: 768px) {
+
+  /* Navigation */
+
+  nav {
+    justify-content: space-around;
+  }
+  .nav-icon i {
+    display: none;
+  }
+
+ .nav-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+ }
+
+ /* Hero Section */
+
+ .top {
+    background: url(./assets/desktop-header.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1407.45px;
+  }
+  
+  .logo {
+    display: none;
+  }
+
+  .headline {
+    background: none;
+    margin-top: 10em;
+  }
+  .introduction br {
+    display: none;
+  }
+
+  .intro, .intro1 {
+    font-size: 48px;
+  }
+
+  .introduction p {
+    max-width: 920px;
+    padding: 10 75px;
+  }
+
+  /* Works Section */
+
+  main {
+    padding: 80px 0 0 0;
+  }
+
+  .works br {
+    display: none;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .card-container {
+    margin: 80px 0 80px 0;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 135px;
+  }
+
+  /* About Me */
+
+  .about-heading {
+    background-image: url("./assets/Group\ 73.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+  }
+
+  .about-heading p {
+    Width: 920px;
+    padding: 0 75px;
+  }
+
+  /* Skills Stack */
+  
+  .skills {
+    grid-template-rows: none;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0 133px;
+  }
+
+  /* Contact Me */
+  
+  .contact {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 135px 200px 135px;
+    gap: 24px;
+    margin-top: 80px;
+    background-image: url("./assets/Group\ 72.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+   }
+  
+   .contact-heading {
+    font-size: 30px;
+    max-Width: 463px;
+    align-self: center;
+   }
+  
+   .contact-item {
+     flex: 2;
+   }
+   
+   .footer-btn {
+     justify-content: flex-start;
+   }
+
+  /* Footer */
+  .footer {
+    padding: 16px 0;
+    border-top: 1px solid #dfe1e6;
+  }
+}
