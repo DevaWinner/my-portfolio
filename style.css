@@ -24,6 +24,11 @@ nav {
   align-items: center;
   padding: 20px 40px;
   color: var(--blue-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
 }
 
 .logo a,
@@ -339,6 +344,8 @@ button {
 
   nav {
     justify-content: space-around;
+    position: relative;
+    background-color: transparent;
   }
 
   .nav-icon i {
@@ -494,7 +501,6 @@ input:hover::placeholder {
   color: white;
   padding: 10px;
   border-radius: 5px;
-  padding: 10px;
 }
 
 #rotated {

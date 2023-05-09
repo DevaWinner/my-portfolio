@@ -74,7 +74,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- coming soon...
+- [Portfolio](https://devawinner.github.io/my-portfolio/) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,6 +96,39 @@ Clone this repository to your desired folder:
   cd my-folder
   git clone git@github.com:DevaWinner/Hello-Microverse.git
 ```
+## Install
+
+please first install the node package files
+
+```sh
+npm install
+```
+
+### Usage
+
+In order to use this project you either create branch to add more feature. But in order to run the project use below commands.
+
+- npm run build (It will create a production ready file)
+- npm start (It will run the server on your machine)
+
+### Run tests
+
+I have added the linters or tests in order to avoid anykind of typos and ensure the good practices in this project. So while using this repository if you need to check your work no matters have worked on html, css and js you can use below commands:
+
+- In order to run the linter test on index.html or any html file. Use below command
+
+```sh
+npx hint .
+```
+- In order to run the linter test on css file. Use below command
+
+```sh
+npx stylelint "**/*.{css, scss}"
+```
+
+### Deployment
+
+You can deploy this project by using VS-code and injecting it to a browser through a local live server.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -151,7 +184,5 @@ I would like to thank Arsene Thierry and Abdi Nasir Daud my coding partners who 
 ## 📝 License <a name="license"></a>
 
 This project is [MIT](./LICENSE.MD) licensed.
-
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
