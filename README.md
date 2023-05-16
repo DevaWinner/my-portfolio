@@ -116,14 +116,18 @@ In order to use this project you either create branch to add more feature. But i
 I have added the linters or tests in order to avoid anykind of typos and ensure the good practices in this project. So while using this repository if you need to check your work no matters have worked on html, css and js you can use below commands:
 
 - In order to run the linter test on index.html or any html file. Use below command
-
 ```sh
 npx hint .
 ```
-- In order to run the linter test on css file. Use below command
 
+- In order to run the linter test on css file. Use below command
 ```sh
 npx stylelint "**/*.{css, scss}"
+```
+
+- In order to run the linter test on js file. Use below command
+```sh
+npx eslint .
 ```
 
 ### Deployment
@@ -175,7 +179,7 @@ If you like this project, kindly share my portfolio with your friends and collea
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank Arsene Thierry and Abdi Nasir Daud my coding partners who contributed their efforts to my footer session.
+I would like to thank Arsene Thierry and Abdi Nasir Daud my coding partners who contributed their efforts to my footer secion. And to Alfred Peter, my coding partner in Block 3&4 who contributed his efforts to the menu section. 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
