@@ -48,33 +48,33 @@ nav {
   display: none;
 }
 
-.nav-links-container.open { 
+.nav-links-container.open {
   position: absolute;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  left: 0px;
-  right: 0px;
+  left: 0;
+  right: 0;
   top: 60px;
   bottom: 40px;
   height: 550px;
   background-color: #fff;
-  border-radius:0 0 20px 20px;
-  box-shadow: 0px 48px 48px rgba(37, 47, 137, 0.08);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 48px 48px rgba(37, 47, 137, 0.08);
 }
 
 .nav-links-container.open ul {
   list-style-type: none;
   margin: 8px;
 }
-  
+
 .nav-links-container.open ul li {
   padding: 10px 10px;
   color: rgba(58, 74, 66, 1);
   font-size: 32px;
   font-weight: 600;
 }
-  
+
 /* ================== Hero Section ================ */
 
 .headline {
@@ -110,7 +110,7 @@ nav {
   text-align: center;
 }
 
-.social ul {
+.social {
   display: flex;
   flex-direction: row;
   gap: 1em;
@@ -118,11 +118,11 @@ nav {
   justify-content: center;
 }
 
-.social ul li {
+.social li {
   list-style: none;
 }
 
-.social ul li a {
+.social li a {
   text-decoration: none;
   color: #505f79;
 }
@@ -285,14 +285,14 @@ button {
   border-radius: 50%;
 }
 
-.lang-stack ul {
+.lang-stack {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.lang-stack ul li {
+.lang-stack li {
   list-style: none;
   background-color: #fff;
   text-align: center;
