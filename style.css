@@ -63,6 +63,18 @@ nav {
     box-shadow: 0px 48px 48px rgba(37, 47, 137, 0.08);
   }
 
+  .nav-links-container.open ul {
+    list-style-type: none;
+    margin: 8px;
+  }
+  
+  .nav-links-container.open ul li {
+    padding: 10px 10px;
+    color: rgba(58, 74, 66, 1);
+    font-size: 32px;
+    font-weight: 600;
+  }
+  
 /* ================== Hero Section ================ */
 
 .headline {
