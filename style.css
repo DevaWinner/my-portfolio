@@ -118,7 +118,7 @@ nav {
   justify-content: center;
 }
 
-.social li {
+.social > li {
   list-style: none;
 }
 
@@ -292,7 +292,7 @@ button {
   justify-content: center;
 }
 
-.lang-stack li {
+.lang-stack > li {
   list-style: none;
   background-color: #fff;
   text-align: center;
