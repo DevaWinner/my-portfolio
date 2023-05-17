@@ -1,9 +1,11 @@
 function toggleMenu() {
   var menuIcon = document.querySelector('.nav-icon');
   var menu = document.querySelector('.nav-links-container');
+  var logo = document.querySelector('.logo');
 
   menuIcon.classList.toggle('open');
   menu.classList.toggle('open');
+  logo.classList.toggle('hidden');
 
   if (menuIcon.classList.contains('open')) {
     menuIcon.innerHTML = '<i class="fa fa-times fa-xl"></i>';
