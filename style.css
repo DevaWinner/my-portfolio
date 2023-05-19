@@ -197,6 +197,15 @@ hr {
   border-radius: 8px 8px 5px 5px;
 }
 
+.popup-content h1 {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 44px;
+  color: #172b4d;
+}
+
 .card div > h1 {
   text-align: center;
   margin-top: 16px;
@@ -237,6 +246,7 @@ button {
 }
 
 /* ================ Popup Mobile ========================= */
+
 .popup-container {
   position: fixed;
   top: 0;
@@ -258,6 +268,7 @@ button {
   padding: 20px;
   border-radius: 16px;
 }
+
 .popup-content br {
   display: none;
 }
@@ -270,18 +281,9 @@ button {
   font-weight: bold;
 }
 
-.popup-content h1 {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 44px;
-  color: #172b4d;
-}
-
 .popup-content p {
   margin-top: 12px;
-  font-family: 'Inter';
+  font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -530,7 +532,6 @@ button {
     padding: 0 135px;
   }
 
-
   /* ================ Popup Desktop========================= */
 
   .popup-container {
@@ -547,8 +548,8 @@ button {
 
   .popup-content {
     position: relative;
-    Width: 50%;
-    Height: 90%;
+    width: 50%;
+    height: 90%;
     background-color: #fff;
     padding: 24px;
     border-radius: 8px;
@@ -566,7 +567,6 @@ button {
     color: rgba(103, 121, 142, 1);
     padding: 5px;
     border-radius: 4px;
-
   }
 
   .popup-title-container {
@@ -582,7 +582,7 @@ button {
   }
 
   .popup-content h1 {
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 32px;
@@ -592,7 +592,7 @@ button {
 
   .popup-content p {
     margin-top: 10px;
-    font-family: 'Inter';
+    font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
