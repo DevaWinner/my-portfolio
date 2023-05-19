@@ -223,4 +223,7 @@ function openPopup(itemContent) {
   document.body.appendChild(popupContainer);
 }
 
-
+function closePopup() {
+  var popupContainer = document.querySelector('.popup-container');
+  document.body.removeChild(popupContainer);
+}
