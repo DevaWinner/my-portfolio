@@ -35,6 +35,7 @@ const projectContents = [
     source: 'https://github.com/example/project-1',
     buttonText: 'See Project',
     popHeading: 'Keeping track of hundreds of components',
+    popupStack: ['Ruby on Rails', 'CSS', 'JavaScript'],
   },
   {
     heading: 'Multi-Post Stories <br> Gain+Glory',
@@ -45,6 +46,7 @@ const projectContents = [
     source: 'https://github.com/example/project-1',
     buttonText: 'See Project',
     popHeading: 'Keeping track of hundreds of components',
+    popupStack: ['Ruby on Rails', 'CSS', 'JavaScript'],
   },
   {
     heading: 'Multi-Post Stories <br> Gain+Glory',
@@ -55,6 +57,7 @@ const projectContents = [
     source: 'https://github.com/example/project-1',
     buttonText: 'See Project',
     popHeading: 'Keeping track of hundreds of components',
+    popupStack: ['Ruby on Rails', 'CSS', 'JavaScript'],
   },
   {
     heading: 'Multi-Post Stories <br> Gain+Glory',
@@ -65,6 +68,7 @@ const projectContents = [
     source: 'https://github.com/example/project-1',
     buttonText: 'See Project',
     popHeading: 'Keeping track of hundreds of components',
+    popupStack: ['Ruby on Rails', 'CSS', 'JavaScript'],
   },
   {
     heading: 'Multi-Post Stories <br> Gain+Glory',
@@ -75,6 +79,7 @@ const projectContents = [
     source: 'https://github.com/example/project-1',
     buttonText: 'See Project',
     popHeading: 'Keeping track of hundreds of components',
+    popupStack: ['Ruby on Rails', 'CSS', 'JavaScript'],
   },
   {
     heading: 'Multi-Post Stories <br> Gain+Glory',
@@ -85,6 +90,7 @@ const projectContents = [
     source: 'https://github.com/example/project-1',
     buttonText: 'See Project',
     popHeading: 'Keeping track of hundreds of components',
+    popupStack: ['Ruby on Rails', 'CSS', 'JavaScript'],
   },
 
 ];
@@ -142,7 +148,7 @@ function openPopup(itemContent) {
   const stackContainer = document.createElement('ul');
   stackContainer.className = 'stack-container';
 
-  itemContent.stackItems.forEach((stackItem) => {
+  itemContent.popupStack.forEach((stackItem) => {
     const stackItemElement = document.createElement('li');
     stackItemElement.className = 'stack-item';
     stackItemElement.innerHTML = stackItem;

@@ -225,8 +225,9 @@ hr {
   padding: 8px 12px;
   font-size: 12px;
   flex-grow: 1;
-  color: var(--blue-main);
+  color: rgba(58, 74, 66, 1);
   font-weight: 600;
+  border-radius: 5px;
 }
 
 .project-button {
@@ -271,6 +272,10 @@ button {
 
 .popup-content br {
   display: none;
+}
+
+.popup-content .stack-item {
+  flex-grow: 0;
 }
 
 .close-button {
