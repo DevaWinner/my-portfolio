@@ -24,6 +24,11 @@ nav {
   align-items: center;
   padding: 20px 40px;
   color: var(--blue-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
 }
 
 .logo a,
@@ -37,9 +42,58 @@ nav {
 .nav-icon {
   display: block;
   cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
-.nav-links {
+.nav-links-container {
+  display: none;
+}
+
+.social li {
+  list-style: none;
+}
+
+.lang-stack li {
+  list-style: none;
+  background-color: #fff;
+  text-align: center;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  color: var(--green-color);
+}
+
+.nav-links-container.open {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  left: 0;
+  right: 0;
+  top: 40px;
+  bottom: 40px;
+  height: 100vh;
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 48px 48px rgba(37, 47, 137, 0.08);
+}
+
+.nav-links-container.open ul {
+  list-style-type: none;
+  margin: 8px;
+}
+
+.nav-links-container.open ul li {
+  padding: 10px 10px;
+  color: rgba(58, 74, 66, 1);
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.hidden {
   display: none;
 }
 
@@ -78,7 +132,7 @@ nav {
   text-align: center;
 }
 
-.social ul {
+.social {
   display: flex;
   flex-direction: row;
   gap: 1em;
@@ -86,11 +140,7 @@ nav {
   justify-content: center;
 }
 
-.social ul li {
-  list-style: none;
-}
-
-.social ul li a {
+.social li a {
   text-decoration: none;
   color: #505f79;
 }
@@ -253,22 +303,11 @@ button {
   border-radius: 50%;
 }
 
-.lang-stack ul {
+.lang-stack {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.lang-stack ul li {
-  list-style: none;
-  background-color: #fff;
-  text-align: center;
-  padding: 12px;
-  font-size: 12px;
-  font-weight: 600;
-  border-radius: 8px;
-  color: var(--green-color);
 }
 
 /* ============== Contact me ================ */
@@ -339,9 +378,19 @@ button {
 
   nav {
     justify-content: space-around;
+    position: relative;
+    background-color: transparent;
   }
 
-  .nav-icon i {
+  .nav-icon {
+    display: none;
+  }
+
+  .nav-links-container {
+    display: block;
+  }
+
+  .nav-links-container.open {
     display: none;
   }
 
@@ -494,7 +543,6 @@ input:hover::placeholder {
   color: white;
   padding: 10px;
   border-radius: 5px;
-  padding: 10px;
 }
 
 #rotated {
