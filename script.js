@@ -232,28 +232,3 @@ projectContents.forEach((itemContent) => {
 
 const targetElement = document.querySelector('#work');
 targetElement.appendChild(cardContainer);
-
-// =========== Form Validation ============
-
-function validateEmail(event) {
-  var emailInput = document.getElementById('email');
-  var errorMessage = document.getElementById('errorMessage');
-
-  if (emailInput.checkValidity()) {
-    var email = emailInput.value.trim();
-    var isLowerCase = email === email.toLowerCase();
-
-    if (isLowerCase) {
-
-      errorMessage.style.display = 'none';
-    } else {
-
-      errorMessage.textContent = 'Please enter the email in lowercase.';
-      errorMessage.style.display = 'block';
-      event.preventDefault();
-    }
-  }
-}
-
-var form = document.getElementById('emailForm');
-form.addEventListener('submit', validateEmail);
