@@ -197,6 +197,15 @@ hr {
   border-radius: 8px 8px 5px 5px;
 }
 
+.popup-content h1 {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 44px;
+  color: #172b4d;
+}
+
 .card div > h1 {
   text-align: center;
   margin-top: 16px;
@@ -208,6 +217,7 @@ hr {
   display: flex;
   gap: 8px;
   margin-top: 16px;
+  padding: 10px;
 }
 
 .stack-item {
@@ -216,8 +226,10 @@ hr {
   padding: 8px 12px;
   font-size: 12px;
   flex-grow: 1;
-  color: var(--blue-main);
+  color: rgba(58, 74, 66, 1);
   font-weight: 600;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .project-button {
@@ -234,6 +246,79 @@ button {
   font-size: 17px;
   font-weight: 500;
   cursor: pointer;
+}
+
+/* ================ Popup Mobile ========================= */
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(193, 199, 208);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  position: relative;
+  width: 90%;
+  height: 95%;
+  overflow: auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.popup-content br {
+  display: none;
+}
+
+.popup-content .stack-item {
+  flex-grow: 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.popup-content p {
+  margin-top: 12px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.popup-content img {
+  margin-top: 15px;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.popup-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-buttons button {
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.buttons-desktop {
+  display: none;
 }
 
 /* ================== About me =================== */
@@ -349,6 +434,15 @@ button {
   border-radius: 4px;
 }
 
+/* =========Form Validation========== */
+.error-message {
+  display: none;
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
 .footer-btn {
   display: flex;
   justify-content: center;
@@ -429,7 +523,7 @@ button {
 
   .introduction p {
     max-width: 920px;
-    padding: 10 75px;
+    padding: 10px 75px;
   }
 
   /* Works Section */
@@ -452,6 +546,99 @@ button {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     padding: 0 135px;
+  }
+
+  /* ================ Popup Desktop========================= */
+
+  .popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #c1c7d0f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .popup-content {
+    position: relative;
+    width: 50%;
+    height: 90%;
+    background-color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .close-button {
+    margin: 1px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background: rgba(235, 236, 240, 1);
+    color: rgba(103, 121, 142, 1);
+    padding: 5px;
+    border-radius: 4px;
+  }
+
+  .popup-title-container {
+    display: inline-flex;
+    justify-content: space-between;
+  }
+
+  .popup-content img {
+    margin-top: 30px;
+    width: 100%;
+    height: 60%;
+    align-self: center;
+  }
+
+  .popup-content h1 {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 44px;
+    color: #172b4d;
+  }
+
+  .popup-content p {
+    margin-top: 10px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .popup-buttons button {
+    padding: 12px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .buttons-desktop {
+    display: flex;
+    gap: 8px;
+  }
+
+  .buttons-desktop button:first-child {
+    width: 115px;
+    height: 48px;
+  }
+
+  .buttons-desktop button:last-child {
+    width: 139px;
+    height: 48px;
+  }
+
+  .popup-buttons {
+    display: none;
   }
 
   /* About Me */

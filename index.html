@@ -62,102 +62,14 @@
   <main>
     <!--============== Works Section ==================-->
 
-    <section class="works" id="work">
+    <section class="works">
       <div class="work-heading">
         <h1>My Recent <br> Works</h1>
         <hr>
       </div>
-      <div class="card-container">
-        <div class="card">
-          <div class="card-item">
-            <h1>Multi-Post Stories <br> Gain+Glory</h1>
-            <ul class="stack-container">
-              <li class="stack-item">Ruby on Rails</li>
-              <li class="stack-item">JavaScript</li>
-              <li class="stack-item">CSS</li>
-              <li class="stack-item">HTML</li>
-            </ul>
-            <div class="project-button">
-              <button>See Project</button>
-            </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <div class="card-item">
-            <h1>Multi-Post Stories <br> Gain+Glory</h1>
-            <ul class="stack-container">
-              <li class="stack-item">Ruby on Rails</li>
-              <li class="stack-item">JavaScript</li>
-              <li class="stack-item">CSS</li>
-              <li class="stack-item">HTML</li>
-            </ul>
-            <div class="project-button">
-              <button>See Project</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-item">
-            <h1>Multi-Post Stories <br> Gain+Glory</h1>
-            <ul class="stack-container">
-              <li class="stack-item">Ruby on Rails</li>
-              <li class="stack-item">JavaScript</li>
-              <li class="stack-item">CSS</li>
-              <li class="stack-item">HTML</li>
-            </ul>
-            <div class="project-button">
-              <button>See Project</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-item">
-            <h1>Multi-Post Stories <br> Gain+Glory</h1>
-            <ul class="stack-container">
-              <li class="stack-item">Ruby on Rails</li>
-              <li class="stack-item">JavaScript</li>
-              <li class="stack-item">CSS</li>
-              <li class="stack-item">HTML</li>
-            </ul>
-            <div class="project-button">
-              <button>See Project</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-item">
-            <h1>Multi-Post Stories <br> Gain+Glory</h1>
-            <ul class="stack-container">
-              <li class="stack-item">Ruby on Rails</li>
-              <li class="stack-item">JavaScript</li>
-              <li class="stack-item">CSS</li>
-              <li class="stack-item">HTML</li>
-            </ul>
-            <div class="project-button">
-              <button>See Project</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div class="card-item">
-            <h1>Multi-Post Stories <br> Gain+Glory</h1>
-            <ul class="stack-container">
-              <li class="stack-item">Ruby on Rails</li>
-              <li class="stack-item">JavaScript</li>
-              <li class="stack-item">CSS</li>
-              <li class="stack-item">HTML</li>
-            </ul>
-            <div class="project-button">
-              <button>See Project</button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div id="work"></div>
+      <div id="popup"></div>
     </section>
 
     <!--============ About Me ================-->
@@ -243,13 +155,14 @@
     <h1 class="contact-heading">I'm always interested in hearing about new projects, so if you'd like to chat please get
       in touch.</h1>
 
-    <form action="https://formspree.io/f/xjvdlgqp" method="POST" class="contact-item">
+    <form action="https://formspree.io/f/xjvdlgqp" method="POST" class="contact-item" id="emailForm">
       <ul class="contact-form">
         <li><input type="text" class="input" placeholder="Full name" maxlength="30" required></li>
-        <li><input type="email" class="input" placeholder="Email address" required></li>
+        <li><input type="email" name="email" id="email" class="input" placeholder="Email address" required></li>
         <li><textarea name="textarea" class="input" id="" cols="30" rows="10" maxlength="500"
             required>Hey I'd like to connect to...</textarea></li>
-        <li class="footer-btn"><button>Get in touch</button></li>
+            <span id="errorMessage" class="error-message"></span>
+        <li class="footer-btn"><button type="submit" onclick="validateEmail(event)">Get in touch</button></li>
       </ul>
     </form>
   </section>
