@@ -217,6 +217,7 @@ hr {
   display: flex;
   gap: 8px;
   margin-top: 16px;
+  padding: 10px;
 }
 
 .stack-item {
@@ -228,6 +229,7 @@ hr {
   color: rgba(58, 74, 66, 1);
   font-weight: 600;
   border-radius: 5px;
+  text-align: center;
 }
 
 .project-button {
@@ -430,6 +432,15 @@ button {
   color: #6b778c;
   border: 1px solid #d0d9d4;
   border-radius: 4px;
+}
+
+/* =========Form Validation========== */
+.error-message {
+  display: none;
+  color: red;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 5px;
 }
 
 .footer-btn {
