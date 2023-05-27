@@ -12,7 +12,7 @@ function toggleMenu() {
     menuIcon.innerHTML = '<i class="fa fa-times fa-xl"></i>';
   } else {
     menuIcon.innerHTML = '<i class="fa fa-bars fa-xl"></i>';
-  }
+  
 }
 
 document.addEventListener('DOMContentLoaded', () => {
