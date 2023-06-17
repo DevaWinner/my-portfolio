@@ -27,15 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
 // ====== Storing dynamic content of works section in variables ===========
 const projectContents = [
   {
-    heading: 'Multi-Post Stories <br> Gain+Glory',
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s. <br> <br> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it 1960s.",
-    image: './assets/desktop-snap.png',
-    stackItems: ['Ruby on Rails', 'JavaScript', 'CSS', 'HTML'],
-    liveVersion: 'https://example.com/live-version-1',
-    source: 'https://github.com/example/project-1',
+    heading: 'To Do <br> Task Management Application',
+    description: "This is a simple To-Do List application built using JavaScript and Webpack. It allows users to create, manage, and track their tasks. The application features include adding tasks, marking tasks as completed, editing task descriptions, deleting tasks, and clearing all completed tasks. The project utilizes Webpack for bundling the JavaScript modules and managing dependencies. It also saves task to local storage for easy access.",
+    image: './assets/projects/todo.png',
+    stackItems: ['Web Pack', 'JavaScript', 'CSS', 'HTML'],
+    liveVersion: 'https://devawinner.github.io/to-do-project/dist/',
+    source: 'https://github.com/DevaWinner/to-do-project',
     buttonText: 'See Project',
-    popHeading: 'Keeping track of hundreds of components',
-    popupStack: ['Ruby on Rails', 'CSS', 'JavaScript'],
+    popHeading: 'Task Management Application',
+    popupStack: ['Web Pack', 'CSS', 'JavaScript'],
   },
   {
     heading: 'Multi-Post Stories <br> Gain+Glory',
