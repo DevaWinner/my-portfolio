@@ -30,3 +30,7 @@ Open `http://localhost:3000`.
 ## Content source
 
 Portfolio content is centralized in `lib/portfolio-data.ts`.
+
+## Project documentation
+
+Use `docs/project-case-study-template.md` to keep every project documented in a consistent, employer-focused technical case study format.
