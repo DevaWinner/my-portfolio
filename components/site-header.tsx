@@ -70,8 +70,8 @@ export function SiteHeader() {
       <aside
         id="site-navigation-drawer"
         className={cn(
-          "fixed right-0 top-0 z-[60] h-full w-[min(22rem,100vw)] border-l border-border bg-background p-5 transition-transform md:hidden",
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-x-2 top-20 z-[60] max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-xl border border-border/90 bg-background/95 p-5 shadow-2xl backdrop-blur transition-all md:hidden",
+          mobileMenuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"
         )}
       >
         <div className="mb-8 flex items-center justify-between">
