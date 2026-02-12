@@ -374,10 +374,10 @@ export const portfolioData = {
     }
   } satisfies Profile,
   metrics: [
-    { value: "4+ years", label: "Software engineering experience" },
+    { value: "3+ years", label: "Software engineering experience" },
     { value: "60%+", label: "Retention growth delivered" },
     { value: "35%", label: "Conversion lift on core health products" },
-    { value: "5,000+", label: "Monthly visitors on led web platform" }
+    { value: "100,000+", label: "Monthly visitors on led web platform" }
   ] satisfies Metric[],
   focusAreas: [
     "Reliable API and backend architecture for healthcare and fintech products",

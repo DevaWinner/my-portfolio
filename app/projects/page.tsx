@@ -8,7 +8,7 @@ const otherProjects = portfolioData.projects.filter((project) => !project.featur
 
 export default function ProjectsPage() {
   return (
-    <div className="space-y-12 pb-16">
+    <div className="space-y-9 pb-16 sm:space-y-12">
       <PageHero
         kicker="Projects"
         title="Project Work Across Product, Client, and Platform Delivery"

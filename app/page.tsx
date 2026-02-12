@@ -13,7 +13,7 @@ const featuredProjects = portfolioData.projects.filter((project) => project.feat
 
 export default function HomePage() {
   return (
-    <div className="space-y-14 pb-16">
+    <div className="space-y-10 pb-16 sm:space-y-14">
       <PageHero
         kicker="Portfolio"
         title={`${portfolioData.profile.name} - ${portfolioData.profile.title}`}

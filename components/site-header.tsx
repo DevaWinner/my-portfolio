@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Download, Mail, Menu, X } from "lucide-react";
@@ -23,18 +22,10 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/95 backdrop-blur">
-        <div className="container flex h-16 items-center justify-between gap-4">
-          <Link href="/" className="inline-flex min-w-0 items-center gap-3">
-            <Image
-              src="/logo-mark.svg"
-              alt="Aniekan Winner logo"
-              width={36}
-              height={36}
-              priority
-              className="h-9 w-9 shrink-0"
-            />
-            <span className="truncate font-heading text-sm font-semibold">{portfolioData.profile.name}</span>
+      <header className="fixed left-1/2 top-3 z-50 w-[calc(100%-1rem)] max-w-6xl -translate-x-1/2 rounded-xl border border-border/80 bg-background/95 backdrop-blur">
+        <div className="flex h-16 items-center justify-between gap-4 px-4 sm:px-6">
+          <Link href="/" className="inline-flex min-w-0 items-center">
+            <span className="truncate font-heading text-lg font-semibold sm:text-xl">{portfolioData.profile.name}</span>
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
@@ -55,27 +46,13 @@ export function SiteHeader() {
             })}
           </nav>
 
-          <div className="hidden items-center gap-2 md:flex">
-            <a href={`mailto:${portfolioData.profile.contact.email}`} className={buttonVariants({ variant: "ghost", size: "sm" })}>
-              <Mail className="h-4 w-4" />
-              Contact
-            </a>
-            <a
-              href={portfolioData.profile.contact.resumePath}
-              target="_blank"
-              rel="noreferrer"
-              className={buttonVariants({ variant: "outline", size: "sm" })}
-            >
-              <Download className="h-4 w-4" />
-              Resume
-            </a>
-          </div>
-
           <button
             type="button"
             className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "md:hidden")}
             onClick={() => setMobileMenuOpen(true)}
             aria-label="Open menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="site-navigation-drawer"
           >
             <Menu className="h-5 w-5" />
           </button>
@@ -84,15 +61,16 @@ export function SiteHeader() {
 
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-black/40 transition-opacity md:hidden",
+          "fixed inset-0 z-50 bg-black/40 transition-opacity md:hidden",
           mobileMenuOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         )}
         onClick={() => setMobileMenuOpen(false)}
       />
 
       <aside
+        id="site-navigation-drawer"
         className={cn(
-          "fixed right-0 top-0 z-50 h-full w-72 border-l border-border bg-background p-5 transition-transform md:hidden",
+          "fixed right-0 top-0 z-[60] h-full w-[min(22rem,100vw)] border-l border-border bg-background p-5 transition-transform md:hidden",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >

@@ -5,7 +5,7 @@ import { portfolioData } from "@/lib/portfolio-data";
 
 export default function ExperiencePage() {
   return (
-    <div className="space-y-12 pb-16">
+    <div className="space-y-9 pb-16 sm:space-y-12">
       <PageHero
         kicker="Experience"
         title="Professional Experience and Delivery Outcomes"

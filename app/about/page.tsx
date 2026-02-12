@@ -8,7 +8,7 @@ import { portfolioData } from "@/lib/portfolio-data";
 
 export default function AboutPage() {
   return (
-    <div className="space-y-12 pb-16">
+    <div className="space-y-9 pb-16 sm:space-y-12">
       <PageHero
         kicker="About"
         title="Background, Skills, Education, and Professional Context"
