@@ -1,0 +1,117 @@
+{
+  "meta": {
+    "generated_date": "2026-02-12",
+    "purpose": "Blueprint for building a modern, high-performance portfolio website for a Senior Full-stack Software Engineer."
+  },
+  "portfolio_content": {
+    "profile": {
+      "name": "Aniekan Winner Anietie",
+      "title": "Software Engineer",
+      "location": "Abuja (FCT), Nigeria",
+      "contact": {
+        "email": "winneraaniekan@gmail.com",
+        "linkedin": "linkedin.com/in/winnera",
+        "phone": "+2349035251195"
+      },
+      "summary": "Full-stack Software Engineer with 3+ years of experience specializing in high-performance Python backends and React frontends. Proven track record of shipping AI-integrated products that drive measurable growth (60% retention) in Fintech and Healthtech. Expert in building offline-first PWAs and scalable RAG pipelines."
+    },
+    "skills": {
+      "languages": ["Python", "JavaScript (ES6+)", "TypeScript", "SQL (PostgreSQL, SQLite)"],
+      "backend_and_systems": ["FastAPI", "Node.js", "RESTful API Design", "JWT/Auth/RBAC", "Redis", "Docker", "Linux (Pop!_OS/Ubuntu)"],
+      "frontend": ["React", "Redux Toolkit", "React Query", "Tailwind CSS", "Vite", "React Hook Form", "Responsive UI/UX", "PWA", "Shadcn UI"],
+      "ai_ml_genai": ["RAG Pipelines", "Vector Databases (Chroma)", "LLM Orchestration (LangChain, Ollama)", "PyTorch", "Hugging Face", "Semantic Search"],
+      "tools_and_devops": ["Git", "CI/CD", "Azure DevOps", "Cloud Run", "DuckDB", "Kanban/Agile Workflow"]
+    },
+    "experience": [
+      {
+        "company": "Wellahealth Technologies",
+        "location": "Abuja, Nigeria (Remote)",
+        "role": "Software Engineer",
+        "period": "Feb 2024 – Present",
+        "highlights": [
+          "Lead Developer for PRESS, a mobile-first Progressive Web App (PWA) built with React, TypeScript, and Shadcn UI to digitize blood pressure monitoring.",
+          "Engineered an offline-first architecture utilizing Service Workers and custom caching strategies to ensure 100% uptime for medical data entry during network outages.",
+          "Architected a multi-layered anti-fraud system to validate medical readings using ML-based image verification and EXIF metadata analysis.",
+          "Developed a Fintech module with wallet metrics, secure payouts, and an integrated LMS.",
+          "Optimized healthcare platforms (Meditrina, Zoi, Healthsend), increasing user retention by 60%+ and conversion by 35%.",
+          "Established CI/CD for the web stack, reducing release defects."
+        ]
+      },
+      {
+        "company": "OpenTeams Inc",
+        "location": "Austin, Texas (Remote)",
+        "role": "Software Engineer",
+        "period": "May 2024 – Dec 2025",
+        "previous_role": "Software Engineering Intern (Feb 2024 – April 2024)",
+        "highlights": [
+          "Architected and shipped production-ready web applications using FastAPI and React, improving API reliability by 45%.",
+          "Optimized legacy production services, resulting in an 18% reduction in API latency.",
+          "Engineered internal RAG tooling using Python, Ollama, and ChromaDB for semantic search across technical documentation.",
+          "Developed an intelligent SQL routing layer using DuckDB to translate natural-language queries into parameterized SQL.",
+          "Streamlined team workflows by building custom data access utilities."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "SOLE (Employee Stock Option Loan Platform)",
+        "role": "Full-Stack Engineer",
+        "description": "A multi-tenant stock-loan platform with strict data isolation and configurable tenancy.",
+        "key_features": [
+          "Borrower flows with eligibility and configurable down payments.",
+          "HR, Legal, and Finance workflows with funding confirmation gates.",
+          "Security primitives: JWT auth, RBAC + ACL, audit logging, encrypted-field support."
+        ],
+        "tech_stack": ["Python", "FastAPI", "SQLAlchemy", "Alembic", "PostgreSQL", "Redis", "JWT", "RBAC/ACL", "TypeScript", "React"]
+      },
+      {
+        "name": "SuperSet (Agentic Dev Orchestrator - Local-first, Linux)",
+        "role": "Engineer",
+        "status": "In Progress",
+        "description": "A local-first orchestrator for CLI coding agents.",
+        "key_features": [
+          "Handoff Bundle contract for seamless continuation across stages.",
+          "Gated automation and Verifier loop for lint/tests/types.",
+          "Worktree-per-task isolation and persistent logs."
+        ],
+        "tech_stack": ["Python", "Rust", "SQLite", "Git worktrees", "PTY terminal sessions", "Electron", "Docker"]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Miva Open University",
+        "degree": "MSc, Information Technology (Artificial Intelligence)",
+        "date": "Expected Dec 2026",
+        "coursework": "Machine Learning, Deep Learning, NLP, Computer Vision, Ethics in AI, Cloud Computing"
+      },
+      {
+        "institution": "Brigham Young University - Idaho",
+        "degree": "Bachelor of Science in Software Development",
+        "date": "Completed June 2025",
+        "coursework": "Data Structures, Web Full-Stack Development, Web Services, Software Testing"
+      }
+    ]
+  },
+  "technical_requirements": {
+    "framework": "Next.js (App Router)",
+    "styling": "Tailwind CSS",
+    "ui_library": "Shadcn UI",
+    "animations": "Framer Motion",
+    "deployment": "Vercel or Netlify",
+    "theme": {
+      "mode": "System (Dark/Light support)",
+      "primary_color": "Indigo/Slate",
+      "style": "Minimalist, clean, and content-focused with subtle interactive elements."
+    }
+  },
+  "implementation_plan": [
+    "Initialize Next.js project with TypeScript and Tailwind CSS.",
+    "Install Shadcn UI components (Card, Button, Badge, Separator, Dialog/Sheet for mobile menu).",
+    "Create a responsive 'Hero' section highlighting the 'Software Engineer' title and AI/ML specialization.",
+    "Build a 'Skills' section using a grid layout with badges for individual skills.",
+    "Develop an 'Experience' timeline component to visualize career progression.",
+    "Create a 'Projects' showcase with cards featuring tech stack tags and links (if available).",
+    "Implement a contact form or a clear 'Call to Action' section with social links.",
+    "Ensure 100% Lighthouse performance score and SEO optimization."
+  ]
+}

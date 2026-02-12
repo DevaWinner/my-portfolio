@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Aniekan Winner Logo</title>
+  <desc id="logoDesc">Minimal AW monogram.</desc>
+  <path d="M28 210L82 54L136 210M50 148H114" stroke="#1D4ED8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M122 54L148 210L176 122L204 210L228 54" stroke="#1D4ED8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="214" cy="40" r="9" fill="#60A5FA" />
+</svg>

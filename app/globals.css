@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 210 38% 98%;
+  --fg: 218 35% 16%;
+  --card: 0 0% 100%;
+  --border: 219 24% 86%;
+  --muted: 217 13% 41%;
+  --primary: 222 73% 47%;
+  --primary-foreground: 210 40% 98%;
+  --ring: 222 73% 47%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: 222 34% 10%;
+    --fg: 210 31% 93%;
+    --card: 223 30% 14%;
+    --border: 221 23% 28%;
+    --muted: 219 13% 68%;
+    --primary: 217 88% 67%;
+    --primary-foreground: 223 34% 12%;
+    --ring: 217 88% 67%;
+  }
+}
+
+* {
+  border-color: hsl(var(--border) / 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "IBM Plex Sans", "Segoe UI", "Helvetica Neue", sans-serif;
+  color: hsl(var(--fg));
+  background-color: hsl(var(--bg));
+  background-image: linear-gradient(180deg, hsl(var(--bg)) 0%, hsl(var(--bg) / 0.92) 100%);
+}
+
+h1,
+h2,
+h3,
+h4,
+.font-heading {
+  font-family: "Sora", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+a,
+button {
+  outline-color: hsl(var(--ring));
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.2);
+}
