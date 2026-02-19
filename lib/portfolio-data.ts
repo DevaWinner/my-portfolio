@@ -69,12 +69,14 @@ export interface EducationItem {
 	degree: string;
 	date: string;
 	coursework: string;
+	notableOutcome: string;
 }
 
 export interface CertificationItem {
 	name: string;
 	provider: string;
 	period: string;
+	issuedOn: string;
 	details: string[];
 }
 
@@ -659,6 +661,10 @@ export const portfolioData = {
 			degree: item.degree,
 			date: item.date,
 			coursework: item.coursework,
+			notableOutcome:
+				item.institution === "Miva Open University"
+					? "Applying AI-focused learning to production features across RAG workflows, semantic search, and automation."
+					: "Applied core software engineering foundations to API delivery, testing, and maintainable product implementation.",
 		})),
 		{
 			institution: "Microverse Inc.",
@@ -666,6 +672,8 @@ export const portfolioData = {
 			date: "Mar 2023 - Sep 2023",
 			coursework:
 				"1300+ hours in algorithms, data structures, and full-stack engineering with Ruby, Rails, JavaScript, React, and Redux.",
+			notableOutcome:
+				"Delivered remote full-stack capstone work in pair-programming teams with strong collaboration and code-review discipline.",
 		},
 	] satisfies EducationItem[],
 	certifications: [
@@ -673,6 +681,7 @@ export const portfolioData = {
 			name: "System Administration Training",
 			provider: "Industrial Training Fund (Abuja)",
 			period: "Mar 2022 - Jul 2022",
+			issuedOn: "Jul 2022",
 			details: [
 				"Server management across Windows and Linux environments.",
 				"Network configuration, monitoring, and troubleshooting.",
@@ -684,6 +693,7 @@ export const portfolioData = {
 			name: "CompTIA A+ Track",
 			provider: "Cisco Networking Academy",
 			period: "Aug 2020 - Nov 2020",
+			issuedOn: "Nov 2020",
 			details: [
 				"Hardware and software troubleshooting fundamentals.",
 				"Operating system installation, configuration, and maintenance.",

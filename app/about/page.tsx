@@ -63,7 +63,20 @@ export default function AboutPage() {
                 <p className="text-sm text-muted">
                   {item.institution} | {item.date}
                 </p>
-                <p className="mt-2 text-sm text-foreground/90">{item.coursework}</p>
+                <ul className="mt-3 space-y-2 text-sm text-foreground/90">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
+                    <span>
+                      <span className="font-semibold text-foreground">Key coursework/stack:</span> {item.coursework}
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
+                    <span>
+                      <span className="font-semibold text-foreground">Notable outcome:</span> {item.notableOutcome}
+                    </span>
+                  </li>
+                </ul>
               </article>
             ))}
           </div>
@@ -78,6 +91,9 @@ export default function AboutPage() {
                 <p className="font-heading text-lg font-semibold">{item.name}</p>
                 <p className="text-sm text-muted">
                   {item.provider} | {item.period}
+                </p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+                  Issue Date: {item.issuedOn}
                 </p>
                 <ul className="mt-2 space-y-2 text-sm text-foreground/90">
                   {item.details.map((detail) => (
