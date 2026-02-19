@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Download, Mail, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Download, Mail, Menu, Moon, Sun, X } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { portfolioData } from "@/lib/portfolio-data";
@@ -16,9 +16,52 @@ const navItems = [
 	{ href: "/about", label: "About" },
 ];
 
+const THEME_STORAGE_KEY = "theme";
+type ThemeMode = "light" | "dark";
+
+function getResolvedTheme(): ThemeMode {
+	if (typeof window === "undefined") {
+		return "light";
+	}
+
+	const activeTheme = document.documentElement.dataset.theme;
+	if (activeTheme === "light" || activeTheme === "dark") {
+		return activeTheme;
+	}
+
+	return window.matchMedia("(prefers-color-scheme: dark)").matches
+		? "dark"
+		: "light";
+}
+
+function setDocumentTheme(theme: ThemeMode) {
+	document.documentElement.dataset.theme = theme;
+	try {
+		window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+	} catch {
+		// Ignore storage errors in restricted browser contexts.
+	}
+}
+
 export function SiteHeader() {
 	const pathname = usePathname();
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+	const [theme, setTheme] = useState<ThemeMode>("light");
+
+	useEffect(() => {
+		setTheme(getResolvedTheme());
+	}, []);
+
+	function toggleTheme() {
+		const nextTheme = theme === "dark" ? "light" : "dark";
+		setDocumentTheme(nextTheme);
+		setTheme(nextTheme);
+	}
+
+	const darkModeEnabled = theme === "dark";
+	const themeButtonLabel = darkModeEnabled
+		? "Switch to light mode"
+		: "Switch to dark mode";
 
 	return (
 		<>
@@ -50,6 +93,20 @@ export function SiteHeader() {
 								);
 							})}
 						</nav>
+						<button
+							type="button"
+							onClick={toggleTheme}
+							aria-label={themeButtonLabel}
+							aria-pressed={darkModeEnabled}
+							className={buttonVariants({ variant: "ghost", size: "sm" })}
+						>
+							{darkModeEnabled ? (
+								<Sun className="h-4 w-4" />
+							) : (
+								<Moon className="h-4 w-4" />
+							)}
+							<span className="sr-only">{themeButtonLabel}</span>
+						</button>
 						<a
 							href={portfolioData.profile.contact.resumePath}
 							target="_blank"
@@ -61,19 +118,32 @@ export function SiteHeader() {
 						</a>
 					</div>
 
-					<button
-						type="button"
-						className={cn(
-							buttonVariants({ variant: "ghost", size: "sm" }),
-							"md:hidden",
-						)}
-						onClick={() => setMobileMenuOpen(true)}
-						aria-label="Open menu"
-						aria-expanded={mobileMenuOpen}
-						aria-controls="site-navigation-drawer"
-					>
-						<Menu className="h-5 w-5" />
-					</button>
+					<div className="flex items-center gap-1 md:hidden">
+						<button
+							type="button"
+							onClick={toggleTheme}
+							aria-label={themeButtonLabel}
+							aria-pressed={darkModeEnabled}
+							className={buttonVariants({ variant: "ghost", size: "sm" })}
+						>
+							{darkModeEnabled ? (
+								<Sun className="h-4 w-4" />
+							) : (
+								<Moon className="h-4 w-4" />
+							)}
+							<span className="sr-only">{themeButtonLabel}</span>
+						</button>
+						<button
+							type="button"
+							className={buttonVariants({ variant: "ghost", size: "sm" })}
+							onClick={() => setMobileMenuOpen(true)}
+							aria-label="Open menu"
+							aria-expanded={mobileMenuOpen}
+							aria-controls="site-navigation-drawer"
+						>
+							<Menu className="h-5 w-5" />
+						</button>
+					</div>
 				</div>
 			</header>
 

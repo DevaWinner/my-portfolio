@@ -22,7 +22,7 @@ export default function AboutPage() {
               href={portfolioData.profile.contact.resumePath}
               target="_blank"
               rel="noreferrer"
-              className={buttonVariants({ variant: "cta", size: "lg" })}
+              className={buttonVariants({ variant: "outline", size: "lg" })}
             >
               <Download className="h-4 w-4" />
               Download Resume

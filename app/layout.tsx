@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import type { ReactNode } from "react";
 
 import { SiteFooter } from "@/components/site-footer";
@@ -19,6 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(function(){try{var k='theme';var t=localStorage.getItem(k);if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();`}
+        </Script>
+      </head>
       <body className="bg-background text-foreground antialiased">
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
