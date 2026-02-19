@@ -136,7 +136,7 @@ export function SiteHeader() {
 						})}
 					>
 						<Mail className="h-4 w-4" />
-						Contact
+						Contact me
 					</a>
 					<a
 						href={portfolioData.profile.contact.resumePath}

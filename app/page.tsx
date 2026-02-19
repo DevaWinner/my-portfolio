@@ -32,13 +32,13 @@ export default function HomePage() {
 							className={buttonVariants({ variant: "primary", size: "lg" })}
 						>
 							<Mail className="h-4 w-4" />
-							Contact
+							Contact me
 						</a>
 						<a
 							href={portfolioData.profile.contact.resumePath}
 							target="_blank"
 							rel="noreferrer"
-							className={buttonVariants({ variant: "cta", size: "lg" })}
+							className={buttonVariants({ variant: "outline", size: "lg" })}
 						>
 							<Download className="h-4 w-4" />
 							Download Resume
