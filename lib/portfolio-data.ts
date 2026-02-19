@@ -359,7 +359,7 @@ const projectPortfolio: ProjectItem[] = [
 		context:
 			"Developer productivity platform for orchestrating autonomous coding agents with repeatable verification and delivery workflows.",
 		summary:
-			"Designing a local-first orchestrator for CLI coding agents and verifier-driven automation.",
+			"Building an open source local-first orchestrator for CLI coding agents and verifier-driven automation.",
 		challenge:
 			"Coordinating multi-stage autonomous coding tasks reliably while preserving traceability, isolation, and deterministic quality gates.",
 		solution:
@@ -513,7 +513,7 @@ const projectPortfolio: ProjectItem[] = [
 		context:
 			"Consumer acquisition product combining affordable data bundles with telemedicine and hospital-cover benefits for mobile-first Nigerian users.",
 		summary:
-			"Zoi is a disruptive health-tech product that bundles affordable data plans with essential healthcare services like telemedicine via WhatsApp and hospital cover.",
+			"Built a disruptive health-tech product that bundles affordable data plans with essential healthcare services like telemedicine via WhatsApp and hospital cover.",
 		challenge:
 			"Building a seamless, trust-based enrollment flow that handles sensitive user data and real-time payments while remaining lightweight enough for the Nigerian mobile-web market.",
 		solution:
