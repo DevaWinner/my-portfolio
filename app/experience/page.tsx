@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { ArrowDown, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
 
 import { PageHero } from "@/components/page-hero";
+import { buttonVariants } from "@/components/ui/button";
 import { portfolioData } from "@/lib/portfolio-data";
 
 export const metadata: Metadata = {
@@ -9,76 +11,99 @@ export const metadata: Metadata = {
 	description: "Aniekan Winner Anietie's engineering experience across AI platforms, healthcare, fintech, and production software.",
 };
 
+const [currentRole, ...earlierRoles] = portfolioData.experience;
+
+const workingMethod = [
+	{ title: "Make the constraint explicit", text: "Map business rules, service boundaries, data ownership, and failure modes before ambiguity becomes expensive." },
+	{ title: "Ship a coherent slice", text: "Carry typed contracts through API, state, interface, verification, and deployment so value arrives intact." },
+	{ title: "Measure what changed", text: "Use reliability, latency, conversion, retention, and operational signals to decide what earns the next iteration." },
+];
+
 export default function ExperiencePage() {
 	return (
 		<div>
 			<PageHero
-				kicker="Experience"
-				title={<>Engineering ownership, from <span className="text-primary">architecture to outcomes.</span></>}
+				label="Experience"
+				title="Ownership measured in what changed."
 				description="A career shaped by production constraints: tenant isolation, unreliable networks, sensitive data, legacy systems, and product metrics that leave little room for vague engineering."
+				actions={<><a href={`mailto:${portfolioData.profile.contact.email}`} className={buttonVariants({ variant: "primary", size: "lg" })}><Mail className="h-4 w-4" /> Contact me</a><Link href="/projects" className={buttonVariants({ variant: "outline", size: "lg" })}>View the work <ArrowRight className="h-4 w-4" /></Link></>}
+				aside={
+					<div>
+						<p className="type-label text-muted">Work shaped across</p>
+						<ul className="mt-5 border-b border-border">
+							{["Multi-tenant platforms", "Healthcare and fintech", "AI systems and developer tooling"].map((item) => <li key={item} className="border-t border-border py-4 font-semibold">{item}</li>)}
+						</ul>
+					</div>
+				}
 			/>
 
-			<section className="border-b border-border bg-card/55">
-				<div className="container grid grid-cols-2 divide-x divide-y divide-border sm:grid-cols-4 sm:divide-y-0">
-					{portfolioData.metrics.map((metric) => (
-						<div key={metric.label} className="px-4 py-6 first:pl-0 sm:px-6">
-							<p className="font-heading text-2xl font-bold text-primary sm:text-3xl">{metric.value}</p>
-							<p className="mt-1 text-xs font-semibold leading-5 text-muted">{metric.label}</p>
-						</div>
-					))}
+			<section className="container py-[4.5rem] sm:py-28" aria-labelledby="current-role-heading">
+				<div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+					<div><p className="type-label text-primary">Current ownership</p><h2 id="current-role-heading" className="type-headline mt-4">Building the platform and the practice.</h2></div>
+					<p className="type-label text-muted">{currentRole.period}</p>
 				</div>
+
+				<article className="overflow-hidden rounded-xl bg-brand text-brand-foreground">
+					<div className="grid lg:grid-cols-[0.8fr_1.2fr]">
+						<div className="p-6 sm:p-8 lg:p-12">
+							<p className="type-label text-white/80">{currentRole.company} · {currentRole.location}</p>
+							<h3 className="type-headline mt-6 max-w-[14ch]">{currentRole.role}</h3>
+							<p className="type-body mt-6 max-w-[52ch] text-white/80">{currentRole.summary}</p>
+							<div className="mt-8 flex flex-wrap gap-2">{currentRole.skills.map((skill) => <span key={skill} className="type-label rounded-full border border-white/30 px-3 py-2 text-white/90">{skill}</span>)}</div>
+						</div>
+
+						<div className="bg-inverse p-6 text-inverse-foreground sm:p-8 lg:p-12">
+							<div>
+								<p className="type-label text-inverse-muted">Selected outcomes</p>
+								<ul className="mt-5 space-y-4">{currentRole.outcomes.map((point) => <li key={point} className="flex gap-3 text-base leading-7"><CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" /><span>{point}</span></li>)}</ul>
+							</div>
+							<div className="mt-8 border-t border-inverse-line pt-8">
+								<p className="type-label text-inverse-muted">Core responsibilities</p>
+								<ul className="mt-5 space-y-4">{currentRole.responsibilities.map((point) => <li key={point} className="text-base leading-7 text-inverse-muted">{point}</li>)}</ul>
+							</div>
+						</div>
+					</div>
+				</article>
 			</section>
 
-			<section className="container py-16 sm:py-24">
-				<div className="mb-12 grid gap-5 lg:grid-cols-[14rem_1fr] lg:gap-12">
-					<p className="eyebrow">Career timeline</p>
-					<h2 className="max-w-3xl font-heading text-3xl font-bold sm:text-4xl">Roles, decisions, and the work that moved the product.</h2>
-				</div>
+			<section className="border-y border-border bg-card py-[4.5rem] sm:py-28" aria-labelledby="earlier-roles-heading">
+				<div className="container">
+					<div className="grid gap-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-end lg:gap-20">
+						<div><p className="type-label text-primary">Production record</p><h2 id="earlier-roles-heading" className="type-headline mt-4 max-w-[12ch]">Roles tied to evidence.</h2></div>
+						<p className="type-body max-w-[58ch] text-muted">Each role is presented through the operating context, the work owned, and the outcome it created—not as a list of detached responsibilities.</p>
+					</div>
 
-				<div className="relative">
-					<div className="absolute bottom-0 left-[5px] top-3 w-px bg-border md:left-[13.5rem]" />
-					{portfolioData.experience.map((item, index) => (
-						<article key={item.id} className="relative grid gap-5 pb-14 pl-9 last:pb-0 md:grid-cols-[12rem_1fr] md:gap-12 md:pl-0">
-							<span className="absolute left-0 top-2 grid h-3 w-3 place-items-center rounded-full border-2 border-background bg-primary md:left-[13.15rem]" />
-							<div>
-								<p className="font-mono text-xs font-bold text-primary">{item.period}</p>
-								<p className="mt-2 text-sm font-bold">{item.company}</p>
-								<p className="mt-1 text-xs leading-5 text-muted">{item.location}</p>
-								{index < portfolioData.experience.length - 1 ? <ArrowDown className="mt-5 hidden h-4 w-4 text-muted md:block" /> : null}
-							</div>
-
-							<div className="border-t border-border pt-5 md:pt-6">
-								<h3 className="font-heading text-2xl font-bold sm:text-3xl">{item.role}</h3>
-								{item.employmentType ? <p className="mt-2 text-xs font-semibold uppercase tracking-[0.1em] text-muted">{item.employmentType}</p> : null}
-								<p className="mt-4 max-w-3xl text-sm leading-7 text-foreground/80">{item.summary}</p>
-
-								<div className="mt-7 grid gap-7 xl:grid-cols-2">
-									<div>
-										<p className="text-xs font-bold uppercase tracking-[0.12em] text-primary">Selected outcomes</p>
-										<ul className="mt-4 space-y-3">
-											{item.outcomes.map((point) => <li key={point} className="flex gap-3 text-sm leading-6 text-foreground/80"><CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-accent" /><span>{point}</span></li>)}
-										</ul>
-									</div>
-									<div>
-										<p className="text-xs font-bold uppercase tracking-[0.12em] text-primary">Core responsibilities</p>
-										<ul className="mt-4 space-y-3">
-											{item.responsibilities.map((point) => <li key={point} className="grid grid-cols-[1rem_1fr] gap-2 text-sm leading-6 text-foreground/80"><span className="font-mono text-primary">/</span><span>{point}</span></li>)}
-										</ul>
-									</div>
+					<div className="mt-12 border-b border-border">
+						{earlierRoles.map((item) => (
+							<article key={item.id} className="grid gap-8 border-t border-border py-10 lg:grid-cols-[13rem_1fr] lg:gap-12">
+								<div>
+									<p className="type-label text-primary">{item.period}</p>
+									<p className="mt-3 font-semibold">{item.company}</p>
+									<p className="type-label mt-2 text-muted">{item.location}</p>
+									{item.employmentType ? <p className="type-label mt-4 text-muted">{item.employmentType}</p> : null}
 								</div>
 
-								<div className="mt-7 flex flex-wrap gap-x-2 gap-y-1">{item.skills.map((skill) => <span key={skill} className="font-mono text-[0.68rem] text-muted after:ml-2 after:content-['/'] last:after:content-none">{skill}</span>)}</div>
-							</div>
-						</article>
-					))}
+								<div>
+									<h3 className="type-title">{item.role}</h3>
+									<p className="type-body mt-4 max-w-[68ch] text-muted">{item.summary}</p>
+
+									<div className="mt-8 grid gap-8 xl:grid-cols-2">
+										<div><p className="type-label text-primary">What changed</p><ul className="mt-4 space-y-3">{item.outcomes.map((point) => <li key={point} className="flex gap-3 text-base leading-7"><CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-accent" /><span>{point}</span></li>)}</ul></div>
+										<div><p className="type-label text-muted">What I owned</p><ul className="mt-4 space-y-3">{item.responsibilities.map((point) => <li key={point} className="text-base leading-7 text-muted">{point}</li>)}</ul></div>
+									</div>
+
+									<div className="mt-8 flex flex-wrap gap-2">{item.skills.map((skill) => <span key={skill} className="type-label rounded-full border border-border bg-background px-3 py-2 text-muted">{skill}</span>)}</div>
+								</div>
+							</article>
+						))}
+					</div>
 				</div>
 			</section>
 
-			<section className="bg-foreground py-16 text-background sm:py-20">
-				<div className="container grid gap-10 md:grid-cols-3">
-					<div><p className="font-mono text-xs font-bold text-accent">01 / CLARITY</p><h2 className="mt-4 font-heading text-2xl font-bold">Make constraints explicit.</h2><p className="mt-3 text-sm leading-6 text-background/65">Map business rules, service boundaries, data ownership, and failure modes before they turn into expensive ambiguity.</p></div>
-					<div><p className="font-mono text-xs font-bold text-accent">02 / DELIVERY</p><h2 className="mt-4 font-heading text-2xl font-bold">Ship coherent slices.</h2><p className="mt-3 text-sm leading-6 text-background/65">Carry typed contracts through API, state, interface, verification, and deployment so value arrives intact.</p></div>
-					<div><p className="font-mono text-xs font-bold text-accent">03 / EVIDENCE</p><h2 className="mt-4 font-heading text-2xl font-bold">Measure what changed.</h2><p className="mt-3 text-sm leading-6 text-background/65">Use reliability, latency, conversion, retention, and operational signals to decide what deserves the next iteration.</p></div>
+			<section className="container py-[4.5rem] sm:py-28" aria-labelledby="method-heading">
+				<div className="grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+					<div><p className="type-label text-primary">Working method</p><h2 id="method-heading" className="type-headline mt-4 max-w-[12ch]">The through-line is accountable delivery.</h2></div>
+					<div className="border-b border-border">{workingMethod.map((item) => <article key={item.title} className="grid gap-3 border-t border-border py-8 sm:grid-cols-[13rem_1fr] sm:gap-8"><h3 className="type-title">{item.title}</h3><p className="text-base leading-7 text-muted">{item.text}</p></article>)}</div>
 				</div>
 			</section>
 		</div>

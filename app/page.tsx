@@ -1,15 +1,14 @@
 import Link from "next/link";
 import {
 	ArrowRight,
+	ArrowUpRight,
 	BrainCircuit,
-	CheckCircle2,
 	Download,
-	ExternalLink,
-	GitBranch,
-	Layers3,
+	Globe2,
 	Mail,
 	ServerCog,
 	ShieldCheck,
+	Workflow,
 } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -17,154 +16,211 @@ import { portfolioData } from "@/lib/portfolio-data";
 import { projectAnchorId } from "@/lib/utils";
 
 const featuredProjects = portfolioData.projects.filter((project) => project.featured).slice(0, 4);
+const leadProject = featuredProjects[0]!;
+const supportingProjects = featuredProjects.slice(1);
 const featuredExperiences = portfolioData.experience.slice(0, 3);
 
+const proofStories = [
+	{
+		constraint: "Health products were losing momentum across fragmented care journeys.",
+		decision: "Reworked critical paths around continuity, faster feedback, and lower-friction completion.",
+		outcome: "60%+",
+		outcomeLabel: "retention improvement",
+	},
+	{
+		constraint: "Production APIs needed to become more dependable without slowing delivery.",
+		decision: "Tightened service boundaries, failure handling, and verification around release-critical paths.",
+		outcome: "45%",
+		outcomeLabel: "reliability improvement",
+	},
+	{
+		constraint: "Legacy services were carrying avoidable latency into user-facing workflows.",
+		decision: "Profiled the bottlenecks and optimized the service paths that materially affected response time.",
+		outcome: "18%",
+		outcomeLabel: "lower API latency",
+	},
+];
+
 const architecture = [
-	{ icon: Layers3, label: "Product layer", value: "Next.js monorepo" },
-	{ icon: ServerCog, label: "Core platform", value: "Go / Chi" },
-	{ icon: BrainCircuit, label: "AI service", value: "Python / LangGraph" },
-	{ icon: ShieldCheck, label: "Governance", value: "OIDC / Cerbos" },
+	{ icon: Workflow, label: "Product surfaces", value: "Next.js monorepo" },
+	{ icon: ServerCog, label: "Deterministic core", value: "Go / Chi" },
+	{ icon: BrainCircuit, label: "Stateless AI", value: "Python / LangGraph" },
+	{ icon: ShieldCheck, label: "Policy boundary", value: "Keycloak / Cerbos" },
 ];
 
 export default function HomePage() {
 	return (
 		<div>
-			<section className="relative overflow-hidden border-b border-border/80 bg-card">
-				<div className="page-grid pointer-events-none absolute inset-0" />
-				<div className="container relative pb-10 pt-12 sm:pb-14 sm:pt-16 lg:pt-20">
-					<div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-						<p className="eyebrow">Full-stack software engineer</p>
-						<span className="inline-flex items-center gap-2 text-xs font-semibold text-muted">
-							<span className="relative flex h-2 w-2">
-								<span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-50" />
-								<span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
+			<section className="overflow-hidden border-b border-border bg-background text-foreground">
+				<div className="container pb-[4.5rem] pt-14 sm:pb-24 sm:pt-20 lg:pb-28">
+					<div className="hero-enter flex flex-col gap-4 border-b border-border pb-6 sm:flex-row sm:items-center sm:justify-between">
+						<div>
+							<p className="type-label text-primary">Aniekan Winner Anietie</p>
+							<p className="mt-1 text-base font-semibold">Full-stack engineer &amp; technical founder</p>
+						</div>
+						<div className="flex flex-wrap items-center gap-3">
+							<span className="inline-flex items-center gap-2 rounded-full bg-accent px-3 py-2 text-sm font-semibold text-accent-foreground">
+								<span className="h-2 w-2 rounded-full bg-brand" aria-hidden="true" /> Open to qualified opportunities
 							</span>
-							Based in Abuja, working globally
-						</span>
-					</div>
-
-					<h1 className="mt-7 max-w-5xl text-balance font-heading text-5xl font-semibold leading-[1.02] sm:text-6xl lg:text-7xl">
-						Aniekan Winner <span className="text-primary">Anietie.</span>
-					</h1>
-					<p className="mt-7 max-w-3xl text-balance text-lg leading-8 text-muted sm:text-xl">
-						I architect secure multi-tenant platforms, AI systems, and product experiences that hold up in production.
-					</p>
-
-					<div className="mt-8 flex flex-wrap gap-3">
-						<Link href="/projects" className={buttonVariants({ variant: "primary", size: "lg" })}>
-							Explore my work <ArrowRight className="h-4 w-4" />
-						</Link>
-						<a href={`mailto:${portfolioData.profile.contact.email}`} className={buttonVariants({ variant: "outline", size: "lg" })}>
-							<Mail className="h-4 w-4" /> Start a conversation
-						</a>
-						<a href={portfolioData.profile.contact.resumePath} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "ghost", size: "lg" })}>
-							<Download className="h-4 w-4" /> Resume
-						</a>
-					</div>
-
-					<div className="mt-16 border-t border-border pt-6">
-						<div className="mb-5 flex items-center justify-between">
-							<div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-muted">
-								<GitBranch className="h-3.5 w-3.5 text-primary" /> Current platform architecture
-							</div>
-							<span className="hidden font-mono text-[0.65rem] text-accent sm:block">tenant context preserved end-to-end</span>
 						</div>
-						<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-							{architecture.map((item, index) => {
-								const Icon = item.icon;
-								return (
-									<div key={item.label} className="relative border-l border-border pl-4">
-										<div className="flex items-center justify-between">
-											<Icon className="h-5 w-5 text-primary" />
-											<span className="font-mono text-[0.65rem] text-muted">0{index + 1}</span>
-										</div>
-										<p className="mt-4 text-xs font-medium text-muted">{item.label}</p>
-										<p className="mt-1 font-heading text-base font-bold">{item.value}</p>
-									</div>
-								);
-							})}
+					</div>
+
+					<div className="hero-enter-late pt-12 sm:pt-16">
+						<h1 className="type-display max-w-[15ch] text-balance">I build secure platforms and practical AI that hold up in production.</h1>
+						<p className="type-body mt-8 max-w-[62ch] text-muted">I turn complex product requirements into reliable systems—across multi-tenant architecture, governed AI, resilient frontends, and the delivery practices that keep them working.</p>
+
+						<div className="mt-8 flex flex-wrap gap-3">
+							<a href={`mailto:${portfolioData.profile.contact.email}`} className={buttonVariants({ variant: "primary", size: "lg" })}>
+								<Mail className="h-4 w-4" /> Contact me
+							</a>
+							<Link href="#selected-work" className={buttonVariants({ variant: "outline", size: "lg" })}>
+								View my work <ArrowRight className="h-4 w-4" />
+							</Link>
+							<a href={portfolioData.profile.contact.resumePath} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "ghost", size: "lg" })}>
+								<Download className="h-4 w-4" /> Resume
+							</a>
+						</div>
+					</div>
+
+					<div className="mt-16 grid gap-6 border-t border-border pt-6 sm:grid-cols-3">
+						<div>
+							<p className="type-label text-muted">Based in</p>
+							<p className="mt-2 flex items-center gap-2 font-semibold"><Globe2 className="h-4 w-4" /> Abuja, working globally</p>
+						</div>
+						<div>
+							<p className="type-label text-muted">Core work</p>
+							<p className="mt-2 font-semibold">Platforms, AI systems, product delivery</p>
+						</div>
+						<div>
+							<p className="type-label text-muted">Working style</p>
+							<p className="mt-2 font-semibold">Rigorous, inventive, dependable</p>
 						</div>
 					</div>
 				</div>
 			</section>
 
-			<section className="border-b border-border/80">
-				<div className="container grid grid-cols-2 divide-x divide-y divide-border sm:grid-cols-4 sm:divide-y-0">
-					{portfolioData.metrics.map((metric) => (
-						<div key={metric.label} className="px-4 py-7 first:pl-0 sm:px-6 lg:py-9">
-							<p className="font-heading text-3xl font-bold text-primary sm:text-4xl">{metric.value}</p>
-							<p className="mt-2 max-w-[10rem] text-xs font-semibold leading-5 text-muted">{metric.label}</p>
-						</div>
-					))}
-				</div>
-			</section>
-
-			<section className="container py-16 sm:py-24">
-				<div className="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+			<section className="container py-[4.5rem] sm:py-28" aria-labelledby="proof-heading">
+				<div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
 					<div>
-						<p className="eyebrow">What I do</p>
-						<h2 className="mt-5 text-balance font-heading text-4xl font-bold leading-tight sm:text-5xl">From product intent to production systems.</h2>
-						<p className="mt-5 text-base leading-7 text-muted">I work across architecture, backend, frontend, AI integration, security, and delivery. The goal is one coherent product, not a collection of disconnected technical decisions.</p>
+						<p className="type-label text-primary">Evidence, not adjectives</p>
+						<h2 id="proof-heading" className="type-headline mt-4 max-w-[12ch]">The work is measurable.</h2>
+						<p className="type-body mt-6 max-w-[48ch] text-muted">Technical depth matters when it changes reliability, speed, adoption, or the team&apos;s confidence in what ships.</p>
 					</div>
-					<div className="border-y border-border">
-						{portfolioData.focusAreas.map((focus, index) => (
-							<div key={focus} className="grid grid-cols-[2.5rem_1fr] gap-4 border-b border-border py-5 last:border-b-0 sm:grid-cols-[3.5rem_1fr] sm:py-6">
-								<span className="font-mono text-xs font-bold text-primary">0{index + 1}</span>
-								<p className="text-base font-semibold leading-7 text-foreground/90">{focus}</p>
-							</div>
+
+					<div className="border-b border-border">
+						{proofStories.map((story) => (
+							<article key={story.outcomeLabel} className="grid gap-6 border-t border-border py-8 md:grid-cols-[1fr_1.15fr_0.72fr] md:items-start">
+								<div>
+									<p className="type-label text-muted">Constraint</p>
+									<p className="mt-3 leading-7">{story.constraint}</p>
+								</div>
+								<div>
+									<p className="type-label text-muted">Decision</p>
+									<p className="mt-3 leading-7">{story.decision}</p>
+								</div>
+								<div className="rounded-lg bg-accent p-4 text-accent-foreground">
+									<p className="type-label">Result</p>
+									<p className="type-title mt-3 tabular-nums">{story.outcome}</p>
+									<p className="mt-1 text-sm font-semibold leading-5">{story.outcomeLabel}</p>
+								</div>
+							</article>
 						))}
 					</div>
 				</div>
 			</section>
 
-			<section className="border-y border-border/80 py-16 sm:py-24">
+			<section id="selected-work" className="scroll-mt-24 border-y border-border bg-card py-[4.5rem] sm:py-28" aria-labelledby="work-heading">
 				<div className="container">
-					<div className="flex flex-wrap items-end justify-between gap-5">
+					<div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
 						<div>
-							<p className="eyebrow">Selected work</p>
-							<h2 className="mt-5 font-heading text-4xl font-bold sm:text-5xl">Systems with real constraints.</h2>
+							<p className="type-label text-primary">Selected systems</p>
+							<h2 id="work-heading" className="type-headline mt-4">Built around real constraints.</h2>
 						</div>
 						<Link href="/projects" className={buttonVariants({ variant: "outline", size: "md" })}>All case studies <ArrowRight className="h-4 w-4" /></Link>
 					</div>
 
-					<div className="mt-10 grid gap-x-12 lg:grid-cols-2">
-						{featuredProjects.map((project, index) => (
-							<article key={project.name} className="group flex min-h-[21rem] flex-col border-t border-border py-8">
-								<div className="flex items-start justify-between gap-4">
-									<div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.1em] text-primary">
-										<span>{project.category}</span>{project.status ? <span className="rounded-md bg-accent/10 px-2 py-1 normal-case tracking-normal text-accent">{project.status}</span> : null}
-									</div>
-									<span className="font-mono text-xs text-muted">0{index + 1}</span>
+					<article className="mt-12 overflow-hidden rounded-xl bg-brand text-brand-foreground">
+						<div className="grid lg:grid-cols-[1.08fr_0.92fr]">
+							<div className="p-6 sm:p-8 lg:p-12">
+								<div className="flex flex-wrap items-center gap-3">
+									<span className="type-label text-white/80">Featured platform</span>
+									{leadProject.status ? <span className="rounded-full bg-accent px-3 py-1.5 text-sm font-semibold text-accent-foreground">{leadProject.status}</span> : null}
 								</div>
-								<h3 className="mt-10 text-balance font-heading text-2xl font-bold sm:text-3xl">{project.name}</h3>
-								<p className="mt-3 text-sm font-semibold text-muted">{project.role} · {project.period}</p>
-								<p className="mt-5 flex-1 text-sm leading-6 text-foreground/80">{project.summary}</p>
-								<div className="mt-6 flex flex-wrap gap-2">
-									{project.techStack.slice(0, 5).map((tech) => <span key={tech} className="font-mono text-[0.68rem] text-muted after:ml-2 after:content-['/'] last:after:content-none">{tech}</span>)}
+								<h3 className="type-headline mt-8 max-w-[15ch] text-balance">{leadProject.name}</h3>
+								<p className="type-body mt-6 max-w-[58ch] text-white/85">{leadProject.summary}</p>
+								<p className="mt-6 max-w-[62ch] leading-7 text-white/75">{leadProject.solution}</p>
+								<div className="mt-8 flex flex-wrap gap-2">
+									{leadProject.techStack.slice(0, 6).map((tech) => <span key={tech} className="rounded-full border border-white/30 px-3 py-2 text-sm font-semibold text-white/90">{tech}</span>)}
 								</div>
-								<Link href={`/projects#${projectAnchorId(project.name)}`} className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-primary">View case study <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
-							</article>
-						))}
-					</div>
-				</div>
-			</section>
+								<Link href={`/projects#${projectAnchorId(leadProject.name)}`} className="focus-ring mt-8 inline-flex min-h-11 items-center gap-2 rounded-md font-semibold text-white underline decoration-white/40 underline-offset-8 transition-colors hover:decoration-white">
+									View the case study <ArrowRight className="h-4 w-4" />
+								</Link>
+							</div>
 
-			<section className="container py-16 sm:py-24">
-				<div className="grid gap-10 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-					<div>
-						<p className="eyebrow">Experience</p>
-						<h2 className="mt-5 font-heading text-4xl font-bold sm:text-5xl">Built across domains.</h2>
-						<p className="mt-5 text-base leading-7 text-muted">Founder-level ownership backed by hands-on product delivery in education, healthcare, fintech, and developer tooling.</p>
-						<Link href="/experience" className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-primary">Full timeline <ArrowRight className="h-4 w-4" /></Link>
-					</div>
-					<div>
-						{featuredExperiences.map((item) => (
-							<article key={item.id} className="grid gap-3 border-t border-border py-7 first:pt-0 first:border-t-0 sm:grid-cols-[9rem_1fr]">
-								<p className="font-mono text-xs font-bold text-primary">{item.period}</p>
+							<figure className="bg-inverse p-6 text-inverse-foreground sm:p-8 lg:p-12">
+								<figcaption>
+									<p className="type-label text-inverse-muted">System boundary map</p>
+									<p className="type-title mt-3">One platform, explicit risk boundaries.</p>
+								</figcaption>
+								<div className="mt-8 border-b border-inverse-line">
+									{architecture.map((item, index) => {
+										const Icon = item.icon;
+										return (
+											<div key={item.label} className="grid grid-cols-[auto_1fr] gap-4 border-t border-inverse-line py-5">
+												<div className="grid h-11 w-11 place-items-center rounded-lg bg-inverse-line text-accent"><Icon className="h-5 w-5" /></div>
+												<div className="flex items-center justify-between gap-4">
+													<div><p className="type-label text-inverse-muted">{item.label}</p><p className="mt-1 font-semibold">{item.value}</p></div>
+													{index < architecture.length - 1 ? <ArrowRight className="h-4 w-4 text-inverse-muted" aria-hidden="true" /> : <ShieldCheck className="h-4 w-4 text-accent" aria-hidden="true" />}
+												</div>
+											</div>
+										);
+									})}
+								</div>
+							</figure>
+						</div>
+					</article>
+
+					<div className="mt-12 border-b border-border">
+						{supportingProjects.map((project) => (
+							<article key={project.name} className="group grid gap-4 border-t border-border py-8 md:grid-cols-[10rem_1fr_auto] md:items-start md:gap-8">
 								<div>
-									<h3 className="font-heading text-2xl font-bold">{item.role}</h3>
-									<p className="mt-1 text-sm font-semibold text-muted">{item.company}</p>
-									<p className="mt-4 text-sm leading-6 text-foreground/80">{item.summary}</p>
+									<p className="type-label text-primary">{project.category}</p>
+									<p className="mt-2 text-sm font-semibold text-muted">{project.period}</p>
+								</div>
+								<div>
+									<h3 className="type-title">{project.name}</h3>
+									<p className="mt-3 max-w-[66ch] leading-7 text-muted">{project.summary}</p>
+									{project.impactMetrics?.[0] ? <p className="mt-4 flex gap-2 font-semibold"><span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-accent" aria-hidden="true" />{project.impactMetrics[0]}</p> : null}
+								</div>
+								<Link href={`/projects#${projectAnchorId(project.name)}`} aria-label={`View ${project.name} case study`} className="focus-ring grid h-11 w-11 place-items-center rounded-lg border border-border text-primary transition-colors duration-150 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground">
+									<ArrowUpRight className="h-4 w-4" />
+								</Link>
+							</article>
+						))}
+					</div>
+				</div>
+			</section>
+
+			<section className="container py-[4.5rem] sm:py-28" aria-labelledby="ownership-heading">
+				<div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+					<div>
+						<p className="type-label text-primary">Engineering ownership</p>
+						<h2 id="ownership-heading" className="type-headline mt-4 max-w-[12ch]">Architecture through outcomes.</h2>
+						<p className="type-body mt-6 max-w-[48ch] text-muted">Founder-level product judgment, backed by hands-on delivery across platform engineering, healthcare, fintech, and internal AI tooling.</p>
+						<Link href="/experience" className="focus-ring mt-8 inline-flex min-h-11 items-center gap-2 rounded-md font-semibold text-primary underline decoration-border decoration-2 underline-offset-8 hover:decoration-primary">Full experience <ArrowRight className="h-4 w-4" /></Link>
+					</div>
+
+					<div className="border-b border-border">
+						{featuredExperiences.map((item) => (
+							<article key={item.id} className="grid gap-4 border-t border-border py-8 sm:grid-cols-[10rem_1fr] sm:gap-8">
+								<div>
+									<p className="type-label text-primary">{item.period}</p>
+									<p className="mt-2 text-sm font-semibold text-muted">{item.company}</p>
+								</div>
+								<div>
+									<h3 className="type-title">{item.role}</h3>
+									<p className="mt-4 max-w-[66ch] leading-7 text-muted">{item.summary}</p>
+									{item.outcomes[0] ? <p className="mt-4 font-semibold">{item.outcomes[0]}</p> : null}
 								</div>
 							</article>
 						))}
@@ -172,13 +228,17 @@ export default function HomePage() {
 				</div>
 			</section>
 
-			<section className="border-t border-border bg-foreground py-16 text-background sm:py-20">
+			<section className="border-t border-border bg-background py-[4.5rem] sm:py-28" aria-labelledby="contact-heading">
 				<div className="container grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
 					<div>
-						<div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.12em] text-background/60"><CheckCircle2 className="h-4 w-4 text-accent" /> Open to meaningful engineering work</div>
-						<h2 className="mt-5 max-w-3xl text-balance font-heading text-4xl font-bold leading-tight sm:text-5xl">Need a platform that is ambitious and accountable?</h2>
+						<p className="type-label text-primary">Start a conversation</p>
+						<h2 id="contact-heading" className="type-headline mt-4 max-w-[14ch]">Bring me the hard part.</h2>
+						<p className="type-body mt-6 max-w-[58ch] text-muted">If you&apos;re hiring for deep product engineering, shaping a complex platform, or need a technical partner who can carry architecture into delivery, I&apos;d like to hear about it.</p>
 					</div>
-					<a href={`mailto:${portfolioData.profile.contact.email}`} className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-background px-6 text-sm font-bold text-foreground transition hover:-translate-y-0.5">Let&apos;s talk <ExternalLink className="h-4 w-4" /></a>
+					<div className="flex flex-wrap gap-3">
+						<a href={`mailto:${portfolioData.profile.contact.email}`} className={buttonVariants({ variant: "primary", size: "lg" })}><Mail className="h-4 w-4" /> Contact me</a>
+						<a href={portfolioData.profile.contact.linkedin} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "outline", size: "lg" })}>LinkedIn <ArrowUpRight className="h-4 w-4" /></a>
+					</div>
 				</div>
 			</section>
 		</div>

@@ -16,42 +16,41 @@ const config: Config = {
     },
     extend: {
 	  fontFamily: {
-		sans: ["var(--font-geist-sans)", "sans-serif"],
-		mono: ["var(--font-geist-mono)", "monospace"]
+		sans: ["var(--font-mona-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
+		mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"]
 	  },
       colors: {
-        background: "hsl(var(--bg) / <alpha-value>)",
-        foreground: "hsl(var(--fg) / <alpha-value>)",
-        card: "hsl(var(--card) / <alpha-value>)",
-        border: "hsl(var(--border) / <alpha-value>)",
-        muted: "hsl(var(--muted) / <alpha-value>)",
+        background: "oklch(var(--bg) / <alpha-value>)",
+        foreground: "oklch(var(--fg) / <alpha-value>)",
+        card: "oklch(var(--card) / <alpha-value>)",
+        border: "oklch(var(--border) / <alpha-value>)",
+        muted: "oklch(var(--muted) / <alpha-value>)",
         primary: {
-          DEFAULT: "hsl(var(--primary) / <alpha-value>)",
-          foreground: "hsl(var(--primary-foreground) / <alpha-value>)"
+          DEFAULT: "oklch(var(--primary) / <alpha-value>)",
+          foreground: "oklch(var(--primary-foreground) / <alpha-value>)"
         },
 		accent: {
-			DEFAULT: "hsl(var(--accent) / <alpha-value>)",
-			foreground: "hsl(var(--accent-foreground) / <alpha-value>)"
+			DEFAULT: "oklch(var(--accent) / <alpha-value>)",
+			foreground: "oklch(var(--accent-foreground) / <alpha-value>)"
 		},
-        ring: "hsl(var(--ring) / <alpha-value>)"
+		brand: {
+			DEFAULT: "oklch(var(--brand) / <alpha-value>)",
+			foreground: "oklch(var(--brand-foreground) / <alpha-value>)"
+		},
+		inverse: {
+			DEFAULT: "oklch(var(--inverse) / <alpha-value>)",
+			foreground: "oklch(var(--inverse-foreground) / <alpha-value>)",
+			muted: "oklch(var(--inverse-muted) / <alpha-value>)",
+			line: "oklch(var(--inverse-line) / <alpha-value>)"
+		},
+        ring: "oklch(var(--ring) / <alpha-value>)"
       },
       boxShadow: {
-        soft: "0 18px 50px -32px rgba(24, 24, 35, 0.28)"
+			overlay: "0 4px 8px oklch(0.11 0.015 160 / 0.16)"
       },
-      keyframes: {
-        drift: {
-          "0%, 100%": { transform: "translate3d(0, 0, 0)" },
-          "50%": { transform: "translate3d(14px, -18px, 0)" }
-        },
-        "drift-slow": {
-          "0%, 100%": { transform: "translate3d(0, 0, 0)" },
-          "50%": { transform: "translate3d(-20px, 16px, 0)" }
-        }
-      },
-      animation: {
-        drift: "drift 12s ease-in-out infinite",
-        "drift-slow": "drift-slow 16s ease-in-out infinite"
-      }
+	  transitionTimingFunction: {
+		"out-expo": "cubic-bezier(0.16, 1, 0.3, 1)"
+	  }
     }
   },
   plugins: []

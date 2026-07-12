@@ -1,13 +1,20 @@
 import type { Metadata } from "next";
+import { Mona_Sans } from "next/font/google";
 import Script from "next/script";
 import type { ReactNode } from "react";
-import { GeistMono } from "geist/font/mono";
-import { GeistSans } from "geist/font/sans";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 import "./globals.css";
+
+const monaSans = Mona_Sans({
+  axes: ["wdth"],
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-mona-sans",
+  weight: "variable"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.aniekanwinner.dev"),
@@ -38,7 +45,7 @@ export default function RootLayout({
           {`(function(){try{var k='theme';var t=localStorage.getItem(k);if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();`}
         </Script>
       </head>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground antialiased`}>
+      <body className={`${monaSans.variable} bg-background text-foreground antialiased`}>
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
           <main className="flex-1 pt-[4.5rem]">{children}</main>

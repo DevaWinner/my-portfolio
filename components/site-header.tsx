@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Download, Menu, Moon, Sun, X } from "lucide-react";
+import { Download, Mail, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -10,9 +10,8 @@ import { portfolioData } from "@/lib/portfolio-data";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-	{ href: "/", label: "Home" },
-	{ href: "/experience", label: "Experience" },
 	{ href: "/projects", label: "Work" },
+	{ href: "/experience", label: "Experience" },
 	{ href: "/about", label: "About" },
 ];
 
@@ -32,6 +31,14 @@ export function SiteHeader() {
 
 	useEffect(() => setTheme(getResolvedTheme()), []);
 	useEffect(() => setMobileMenuOpen(false), [pathname]);
+	useEffect(() => {
+		if (!mobileMenuOpen) return;
+		function closeOnEscape(event: KeyboardEvent) {
+			if (event.key === "Escape") setMobileMenuOpen(false);
+		}
+		window.addEventListener("keydown", closeOnEscape);
+		return () => window.removeEventListener("keydown", closeOnEscape);
+	}, [mobileMenuOpen]);
 
 	function toggleTheme() {
 		const nextTheme = theme === "dark" ? "light" : "dark";
@@ -48,13 +55,14 @@ export function SiteHeader() {
 
 	return (
 		<>
-			<header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-xl">
+			<header className="fixed inset-x-0 top-0 z-40 border-b border-border bg-background">
 				<div className="container flex h-[4.5rem] items-center justify-between gap-6">
-					<Link href="/" className="focus-ring flex min-w-0 items-center rounded-md" aria-label="Aniekan Winner Anietie, home">
-						<div className="min-w-0">
-							<span className="block truncate font-heading text-base font-semibold leading-none">Aniekan Winner Anietie</span>
-							<span className="mt-1 hidden text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-muted sm:block">Engineer &amp; founder</span>
-						</div>
+					<Link href="/" className="focus-ring flex min-w-0 items-center gap-3 rounded-md" aria-label="Aniekan Winner Anietie, home">
+						<span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand text-sm font-bold text-brand-foreground">AW</span>
+						<span className="min-w-0">
+							<span className="block truncate text-sm font-semibold leading-tight">Aniekan Winner</span>
+							<span className="type-label mt-0.5 hidden text-muted sm:block">Engineer &amp; founder</span>
+						</span>
 					</Link>
 
 					<div className="hidden items-center gap-2 md:flex">
@@ -62,43 +70,48 @@ export function SiteHeader() {
 							{navItems.map((item) => {
 								const active = pathname === item.href;
 								return (
-									<Link key={item.href} href={item.href} className={cn("focus-ring rounded-md px-3 py-2 text-sm font-semibold transition-colors", active ? "text-primary" : "text-muted hover:text-foreground")} aria-current={active ? "page" : undefined}>
+									<Link key={item.href} href={item.href} className={cn("focus-ring relative rounded-md px-3 py-3 text-sm font-semibold text-muted transition-colors duration-150 hover:text-foreground", active && "text-primary after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:rounded-full after:bg-primary")} aria-current={active ? "page" : undefined}>
 										{item.label}
 									</Link>
 								);
 							})}
 						</nav>
-						<button type="button" onClick={toggleTheme} aria-label={themeLabel} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-9 px-0" })}>
+						<button type="button" onClick={toggleTheme} aria-label={themeLabel} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-11 px-0" })}>
 							{theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
 						</button>
-						<a href={portfolioData.profile.contact.resumePath} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "cta", size: "sm" })}>
-							<Download className="h-4 w-4" /> Resume
+						<a href={`mailto:${portfolioData.profile.contact.email}`} className={buttonVariants({ variant: "primary", size: "sm" })}>
+							<Mail className="h-4 w-4" /> Contact
 						</a>
 					</div>
 
 					<div className="flex items-center gap-1 md:hidden">
-						<button type="button" onClick={toggleTheme} aria-label={themeLabel} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-9 px-0" })}>
+						<button type="button" onClick={toggleTheme} aria-label={themeLabel} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-11 px-0" })}>
 							{theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
 						</button>
-						<button type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-9 px-0" })}>
+						<button type="button" onClick={() => setMobileMenuOpen((open) => !open)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" className={buttonVariants({ variant: "ghost", size: "sm", className: "w-11 px-0" })}>
 							{mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
 						</button>
 					</div>
 				</div>
 			</header>
 
-			<div className={cn("fixed inset-x-0 top-[4.5rem] z-40 border-b border-border bg-background px-5 py-6 shadow-soft transition md:hidden", mobileMenuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0")}>
-				<nav className="mx-auto grid max-w-6xl gap-1" aria-label="Mobile navigation">
-					{navItems.map((item) => (
-						<Link key={item.href} href={item.href} className={cn("rounded-md px-3 py-3 text-base font-semibold", pathname === item.href ? "bg-primary/10 text-primary" : "text-foreground")}>
-							{item.label}
-						</Link>
-					))}
-					<a href={portfolioData.profile.contact.resumePath} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "primary", size: "md", className: "mt-4 w-full" })}>
-						<Download className="h-4 w-4" /> Download resume
-					</a>
-				</nav>
-			</div>
+			{mobileMenuOpen ? (
+				<div id="mobile-navigation" className="fixed inset-x-0 top-[4.5rem] z-30 border-b border-border bg-background px-5 py-6 shadow-overlay md:hidden">
+					<nav className="mx-auto grid max-w-6xl gap-1" aria-label="Mobile navigation">
+						{navItems.map((item) => (
+							<Link key={item.href} href={item.href} className={cn("focus-ring rounded-lg px-4 py-3 text-base font-semibold", pathname === item.href ? "bg-card text-primary" : "text-foreground")} aria-current={pathname === item.href ? "page" : undefined}>
+								{item.label}
+							</Link>
+						))}
+						<a href={`mailto:${portfolioData.profile.contact.email}`} className={buttonVariants({ variant: "primary", size: "md", className: "mt-4 w-full" })}>
+							<Mail className="h-4 w-4" /> Contact me
+						</a>
+						<a href={portfolioData.profile.contact.resumePath} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "outline", size: "md", className: "w-full" })}>
+							<Download className="h-4 w-4" /> Download resume
+						</a>
+					</nav>
+				</div>
+			) : null}
 		</>
 	);
 }
