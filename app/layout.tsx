@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import type { ReactNode } from "react";
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -8,9 +10,20 @@ import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Aniekan Winner Anietie | Software Engineer",
+  metadataBase: new URL("https://www.aniekanwinner.dev"),
+  title: {
+    default: "Aniekan Winner Anietie | Full-Stack Software Engineer",
+    template: "%s | Aniekan Winner"
+  },
   description:
-    "Portfolio of Aniekan Winner Anietie - Software Engineer focused on healthcare and fintech engineering, high-performance backend systems, and product delivery outcomes."
+    "Full-stack software engineer and technical founder building secure multi-tenant platforms, AI systems, and production products with Go, Python, React, and TypeScript.",
+  keywords: ["Full-Stack Engineer", "Go", "Python", "Next.js", "AI Engineer", "Multi-tenant Platforms", "Nigeria"],
+  openGraph: {
+    title: "Aniekan Winner Anietie | Full-Stack Software Engineer",
+    description: "Secure multi-tenant platforms, AI systems, and product engineering.",
+    type: "website",
+    url: "/"
+  }
 };
 
 export default function RootLayout({
@@ -19,16 +32,16 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Script id="theme-init" strategy="beforeInteractive">
           {`(function(){try{var k='theme';var t=localStorage.getItem(k);if(t==='light'||t==='dark'){document.documentElement.dataset.theme=t;}}catch(e){}})();`}
         </Script>
       </head>
-      <body className="bg-background text-foreground antialiased">
+      <body className={`${GeistSans.variable} ${GeistMono.variable} bg-background text-foreground antialiased`}>
         <div className="relative flex min-h-screen flex-col">
           <SiteHeader />
-          <main className="flex-1 pt-20">{children}</main>
+          <main className="flex-1 pt-[4.5rem]">{children}</main>
           <SiteFooter />
         </div>
       </body>

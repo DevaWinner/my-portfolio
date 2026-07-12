@@ -1,5 +1,3 @@
-import instructionSet from "@/portfolio_instructions.json";
-
 export interface ContactInfo {
 	email: string;
 	linkedin: string;
@@ -87,29 +85,6 @@ export interface ServiceItem {
 	details: string;
 }
 
-const source = instructionSet.portfolio_content;
-
-function normalizeUrl(value: string) {
-	if (value.startsWith("http://") || value.startsWith("https://")) {
-		return value;
-	}
-
-	return `https://${value}`;
-}
-
-function formatSkillLabel(key: string) {
-	const aliases: Record<string, string> = {
-		backend_and_systems: "Backend and Systems",
-		ai_ml_genai: "AI/ML and GenAI",
-		tools_and_devops: "Tools and DevOps",
-	};
-
-	return (
-		aliases[key] ??
-		key.replaceAll("_", " ").replace(/\b\w/g, (char) => char.toUpperCase())
-	);
-}
-
 const resumeProjectLinks: Record<string, ProjectLink[]> = {
 	"SOLE (Employee Stock Option Loan Platform)": [
 		{
@@ -140,11 +115,41 @@ const resumeProjectLinks: Record<string, ProjectLink[]> = {
 
 const primaryExperience: ExperienceItem[] = [
 	{
+		id: "acumace",
+		company: "Acumace AI Studio",
+		role: "Founder and Lead Software Engineer",
+		period: "2025 - Present",
+		location: "Abuja, Nigeria",
+		summary:
+			"Leading an AI-native, multi-tenant product studio spanning education, work management, and internal platform operations.",
+		outcomes: [
+			"Designed a tenant-safe polyglot platform with a Go Core API and an isolated, stateless Python AI service.",
+			"Established governed product delivery across SIS, LMS, student portal, work management, and administrative control-plane surfaces.",
+			"Built policy-based authorization, immutable audit trails, typed contracts, and secure service boundaries into the platform foundation.",
+		],
+		responsibilities: [
+			"Architect the Go/Chi core platform, Next.js monorepo, and FastAPI/LangGraph AI services.",
+			"Lead product and engineering across LearnCircle, Workpods, and enterprise administration tools.",
+			"Implement multi-tenancy, Cerbos authorization, Keycloak/OIDC identity, and BFF service boundaries.",
+			"Own technical direction, delivery standards, system observability, and product quality.",
+		],
+		skills: [
+			"Go",
+			"Python",
+			"Next.js",
+			"Multi-tenancy",
+			"LangGraph",
+			"Keycloak",
+			"Cerbos",
+			"Turborepo",
+		],
+	},
+	{
 		id: "wellahealth",
 		company: "Wellahealth Technologies",
 		role: "Software Engineer",
 		period: "Feb 2024 - Present",
-		location: "Abuja, Nigeria (Remote)",
+		location: "Abuja, Nigeria (Hybrid)",
 		summary:
 			"Building healthcare and fintech products with a strong focus on reliability, offline capability, and measurable user outcomes.",
 		outcomes: [
@@ -171,9 +176,9 @@ const primaryExperience: ExperienceItem[] = [
 		id: "openteams",
 		company: "OpenTeams Inc",
 		role: "Software Engineer",
-		period: "May 2024 - Dec 2025",
+		period: "May 2024 - Jun 2026",
 		location: "Austin, Texas (Remote)",
-		employmentType: "Progressed from Internship (Feb 2024 - April 2024)",
+		employmentType: "Software Engineering Intern, Feb 2024 - Apr 2024",
 		summary:
 			"Delivered production APIs and AI-assisted internal tooling, balancing system performance with developer productivity.",
 		outcomes: [
@@ -307,6 +312,53 @@ const primaryExperience: ExperienceItem[] = [
 ];
 
 const projectPortfolio: ProjectItem[] = [
+	{
+		name: "Acumace AI Platform",
+		role: "Founder and Lead Software Engineer",
+		period: "2025 - Present",
+		category: "Platform",
+		status: "In Development",
+		context:
+			"AI-native multi-tenant platform comprising LearnCircle SIS, LMS and Student Portal, Workpods, and an internal administrative control plane.",
+		summary:
+			"Architecting a governed platform where core business workflows, AI automation, and distinct product experiences share secure contracts without sharing risk.",
+		challenge:
+			"Supporting consumer and enterprise products on one platform while guaranteeing tenant isolation, policy-driven access, traceability, and safe AI execution.",
+		solution:
+			"Separated deterministic workflows into a Go Core API and AI workloads into a stateless Python service, connected them through typed BFF contracts, and enforced authorization with Keycloak, Cerbos, and immutable audit logging.",
+		impactMetrics: [
+			"Unified four product surfaces on a governed multi-tenant foundation.",
+			"Isolated AI workloads from the primary database and tenant-critical business logic.",
+			"Standardized frontend delivery through generated clients and a Turborepo monorepo.",
+		],
+		hardProblems: [
+			"Maintaining tenant safety across services, queues, caches, and generated client contracts.",
+			"Separating probabilistic AI behavior from deterministic business workflows.",
+			"Serving consumer and data-dense enterprise interfaces without collapsing them into one design system.",
+		],
+		interviewTalkingPoints: [
+			"Why the platform uses Go for the core and stateless Python for AI workloads.",
+			"How policy decisions, BFF boundaries, and audit events preserve tenant context.",
+			"How the monorepo keeps multiple products consistent without coupling releases.",
+		],
+		nextSteps: [
+			"Expand OpenTelemetry coverage across asynchronous AI workflows.",
+			"Operationalize platform-level usage and policy analytics.",
+		],
+		techStack: [
+			"Go/Chi",
+			"Python",
+			"FastAPI",
+			"Next.js",
+			"PostgreSQL",
+			"Redis",
+			"LangGraph",
+			"Keycloak",
+			"Cerbos",
+			"Turborepo",
+		],
+		featured: true,
+	},
 	{
 		name: "SOLE (Employee Stock Option Loan Platform)",
 		role: "Full-Stack Engineer",
@@ -623,57 +675,56 @@ const projectPortfolio: ProjectItem[] = [
 
 export const portfolioData = {
 	profile: {
-		name: source.profile.name,
-		title: source.profile.title,
-		location: source.profile.location,
-		summary: source.profile.summary,
+		name: "Aniekan Winner Anietie",
+		title: "Full-Stack Software Engineer",
+		location: "Abuja, Nigeria",
+		summary:
+			"Full-stack Software Engineer and technical founder with 3+ years of experience architecting AI-enabled, multi-tenant platforms using Python, Go, React, and TypeScript. I build secure, reliable products across fintech, education, and healthcare.",
 		headline:
-			"Software Engineer focused on healthcare systems, fintech products, and high-performance backend delivery.",
+			"I architect secure multi-tenant platforms, AI systems, and product experiences that hold up in production.",
 		contact: {
-			email: source.profile.contact.email,
-			linkedin: normalizeUrl(source.profile.contact.linkedin),
-			phone: source.profile.contact.phone,
+			email: "winneraaniekan@gmail.com",
+			linkedin: "https://linkedin.com/in/winnera",
+			phone: "+2349035251195",
 			github: "https://github.com/DevaWinner",
-			resumePath: "/aniekan.resume.pdf",
+			resumePath: "/Aniekan%20Winner%20Anietie%20Resume.pdf",
 		},
 	} satisfies Profile,
 	metrics: [
 		{ value: "3+ years", label: "Software engineering experience" },
-		{ value: "60%+", label: "Retention growth delivered" },
-		{ value: "35%", label: "Conversion lift on core health products" },
-		{ value: "100,000+", label: "Monthly visitors on led web platform" },
+		{ value: "60%+", label: "User retention improvement" },
+		{ value: "45%", label: "API reliability improvement" },
+		{ value: "18%", label: "Legacy API latency reduction" },
 	] satisfies Metric[],
 	focusAreas: [
-		"Reliable API and backend architecture for healthcare and fintech products",
-		"Offline-first, mobile-focused frontend systems for real operating conditions",
-		"AI-assisted product features including RAG, semantic search, and automation tooling",
-		"Practical engineering execution with clear release quality and delivery outcomes",
+		"Tenant-safe business platforms with explicit identity, authorization, and audit boundaries",
+		"Stateless AI services for classification, semantic search, recommendations, and automation",
+		"Typed full-stack delivery across Go, Python, Next.js, React, and TypeScript",
+		"Operational quality through CI/CD, observability, verification, and measurable product outcomes",
 	],
-	skills: Object.entries(source.skills).map(([key, items]) => ({
-		label: formatSkillLabel(key),
-		items,
-	})) satisfies SkillCategory[],
-	experience: primaryExperience,
+	skills: [
+		{ label: "Languages", items: ["Python", "Go", "JavaScript", "TypeScript", "SQL"] },
+		{ label: "Backend and Platform", items: ["FastAPI", "Go/Chi", "Node.js", "PostgreSQL", "Redis", "REST APIs", "Multi-tenancy", "BFF Architecture"] },
+		{ label: "Frontend", items: ["React", "Next.js", "Turborepo", "TanStack Query", "Zustand", "Tailwind CSS", "React Hook Form", "Zod", "AG Grid Enterprise"] },
+		{ label: "AI and Machine Learning", items: ["LangGraph", "RAG", "LangChain", "Ollama", "ChromaDB", "PyTorch", "Hugging Face", "Semantic Search"] },
+		{ label: "Security and DevOps", items: ["Keycloak/OIDC", "Cerbos", "RBAC", "Docker", "Kubernetes", "OpenTelemetry", "GitHub Actions", "CI/CD"] },
+	] satisfies SkillCategory[],
+	experience: [primaryExperience[0], primaryExperience[2], primaryExperience[1]],
 	projects: projectPortfolio,
 	education: [
-		...source.education.map((item) => ({
-			institution: item.institution,
-			degree: item.degree,
-			date: item.date,
-			coursework: item.coursework,
-			notableOutcome:
-				item.institution === "Miva Open University"
-					? "Applying AI-focused learning to production features across RAG workflows, semantic search, and automation."
-					: "Applied core software engineering foundations to API delivery, testing, and maintainable product implementation.",
-		})),
 		{
-			institution: "Microverse Inc.",
-			degree: "Remote Full-Stack Web Development Program",
-			date: "Mar 2023 - Sep 2023",
-			coursework:
-				"1300+ hours in algorithms, data structures, and full-stack engineering with Ruby, Rails, JavaScript, React, and Redux.",
-			notableOutcome:
-				"Delivered remote full-stack capstone work in pair-programming teams with strong collaboration and code-review discipline.",
+			institution: "Miva Open University",
+			degree: "MSc, Information Technology (Artificial Intelligence)",
+			date: "Expected Dec 2026",
+			coursework: "Machine Learning and AI Fundamentals, Deep Learning, NLP, Computer Vision, Ethics in AI, Advanced Database Systems, Cloud Computing",
+			notableOutcome: "Applying AI research and coursework directly to governed production workflows, semantic search, and automation systems.",
+		},
+		{
+			institution: "Brigham Young University - Idaho",
+			degree: "Bachelor of Science in Software Development",
+			date: "Completed Jun 2025",
+			coursework: "Data Structures, Web Full-Stack Development, Web Services, Software Engineering Principles, Software Testing, Senior Project",
+			notableOutcome: "Built the software engineering foundation now applied across API design, testing, product architecture, and technical leadership.",
 		},
 	] satisfies EducationItem[],
 	certifications: [

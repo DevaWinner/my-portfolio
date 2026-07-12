@@ -11,10 +11,14 @@ const config: Config = {
         lg: "2rem"
       },
       screens: {
-        "2xl": "1100px"
+        "2xl": "1180px"
       }
     },
     extend: {
+	  fontFamily: {
+		sans: ["var(--font-geist-sans)", "sans-serif"],
+		mono: ["var(--font-geist-mono)", "monospace"]
+	  },
       colors: {
         background: "hsl(var(--bg) / <alpha-value>)",
         foreground: "hsl(var(--fg) / <alpha-value>)",
@@ -25,10 +29,14 @@ const config: Config = {
           DEFAULT: "hsl(var(--primary) / <alpha-value>)",
           foreground: "hsl(var(--primary-foreground) / <alpha-value>)"
         },
+		accent: {
+			DEFAULT: "hsl(var(--accent) / <alpha-value>)",
+			foreground: "hsl(var(--accent-foreground) / <alpha-value>)"
+		},
         ring: "hsl(var(--ring) / <alpha-value>)"
       },
       boxShadow: {
-        soft: "0 20px 50px -26px rgba(47, 71, 255, 0.35)"
+        soft: "0 18px 50px -32px rgba(24, 24, 35, 0.28)"
       },
       keyframes: {
         drift: {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Download, Mail, Menu, Moon, Sun, X } from "lucide-react";
+import { Download, Menu, Moon, Sun, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
@@ -12,35 +12,17 @@ import { cn } from "@/lib/utils";
 const navItems = [
 	{ href: "/", label: "Home" },
 	{ href: "/experience", label: "Experience" },
-	{ href: "/projects", label: "Projects" },
+	{ href: "/projects", label: "Work" },
 	{ href: "/about", label: "About" },
 ];
 
-const THEME_STORAGE_KEY = "theme";
 type ThemeMode = "light" | "dark";
 
 function getResolvedTheme(): ThemeMode {
-	if (typeof window === "undefined") {
-		return "light";
-	}
-
+	if (typeof window === "undefined") return "light";
 	const activeTheme = document.documentElement.dataset.theme;
-	if (activeTheme === "light" || activeTheme === "dark") {
-		return activeTheme;
-	}
-
-	return window.matchMedia("(prefers-color-scheme: dark)").matches
-		? "dark"
-		: "light";
-}
-
-function setDocumentTheme(theme: ThemeMode) {
-	document.documentElement.dataset.theme = theme;
-	try {
-		window.localStorage.setItem(THEME_STORAGE_KEY, theme);
-	} catch {
-		// Ignore storage errors in restricted browser contexts.
-	}
+	if (activeTheme === "light" || activeTheme === "dark") return activeTheme;
+	return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
 export function SiteHeader() {
@@ -48,181 +30,75 @@ export function SiteHeader() {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [theme, setTheme] = useState<ThemeMode>("light");
 
-	useEffect(() => {
-		setTheme(getResolvedTheme());
-	}, []);
+	useEffect(() => setTheme(getResolvedTheme()), []);
+	useEffect(() => setMobileMenuOpen(false), [pathname]);
 
 	function toggleTheme() {
 		const nextTheme = theme === "dark" ? "light" : "dark";
-		setDocumentTheme(nextTheme);
+		document.documentElement.dataset.theme = nextTheme;
 		setTheme(nextTheme);
+		try {
+			window.localStorage.setItem("theme", nextTheme);
+		} catch {
+			// Theme still applies when storage is unavailable.
+		}
 	}
 
-	const darkModeEnabled = theme === "dark";
-	const themeButtonLabel = darkModeEnabled
-		? "Switch to light mode"
-		: "Switch to dark mode";
+	const themeLabel = theme === "dark" ? "Switch to light mode" : "Switch to dark mode";
 
 	return (
 		<>
-			<header className="fixed left-1/2 top-3 z-50 w-[calc(100%-1rem)] max-w-6xl -translate-x-1/2 rounded-xl border border-border/80 bg-background/95 backdrop-blur">
-				<div className="flex h-16 items-center justify-between gap-4 px-4 sm:px-6">
-					<Link href="/" className="inline-flex min-w-0 items-center">
-						<span className="truncate font-heading text-lg font-semibold sm:text-xl">
-							{portfolioData.profile.name}
-						</span>
+			<header className="fixed inset-x-0 top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur-xl">
+				<div className="container flex h-[4.5rem] items-center justify-between gap-6">
+					<Link href="/" className="focus-ring flex min-w-0 items-center rounded-md" aria-label="Aniekan Winner Anietie, home">
+						<div className="min-w-0">
+							<span className="block truncate font-heading text-base font-semibold leading-none">Aniekan Winner Anietie</span>
+							<span className="mt-1 hidden text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-muted sm:block">Engineer &amp; founder</span>
+						</div>
 					</Link>
 
-					<div className="hidden items-center gap-3 md:flex">
-						<nav className="flex items-center gap-1">
+					<div className="hidden items-center gap-2 md:flex">
+						<nav className="flex items-center" aria-label="Primary navigation">
 							{navItems.map((item) => {
-								const isActive = pathname === item.href;
+								const active = pathname === item.href;
 								return (
-									<Link
-										key={item.href}
-										href={item.href}
-										className={cn(
-											"rounded-md px-3 py-2 text-sm font-medium transition-colors",
-											isActive
-												? "bg-card text-foreground"
-												: "text-muted hover:text-foreground",
-										)}
-									>
+									<Link key={item.href} href={item.href} className={cn("focus-ring rounded-md px-3 py-2 text-sm font-semibold transition-colors", active ? "text-primary" : "text-muted hover:text-foreground")} aria-current={active ? "page" : undefined}>
 										{item.label}
 									</Link>
 								);
 							})}
 						</nav>
-						<button
-							type="button"
-							onClick={toggleTheme}
-							aria-label={themeButtonLabel}
-							aria-pressed={darkModeEnabled}
-							className={buttonVariants({ variant: "ghost", size: "sm" })}
-						>
-							{darkModeEnabled ? (
-								<Sun className="h-4 w-4" />
-							) : (
-								<Moon className="h-4 w-4" />
-							)}
-							<span className="sr-only">{themeButtonLabel}</span>
+						<button type="button" onClick={toggleTheme} aria-label={themeLabel} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-9 px-0" })}>
+							{theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
 						</button>
-						<a
-							href={portfolioData.profile.contact.resumePath}
-							target="_blank"
-							rel="noreferrer"
-							className={buttonVariants({ variant: "cta", size: "sm" })}
-						>
-							<Download className="h-4 w-4" />
-							Download Resume
+						<a href={portfolioData.profile.contact.resumePath} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "cta", size: "sm" })}>
+							<Download className="h-4 w-4" /> Resume
 						</a>
 					</div>
 
 					<div className="flex items-center gap-1 md:hidden">
-						<button
-							type="button"
-							onClick={toggleTheme}
-							aria-label={themeButtonLabel}
-							aria-pressed={darkModeEnabled}
-							className={buttonVariants({ variant: "ghost", size: "sm" })}
-						>
-							{darkModeEnabled ? (
-								<Sun className="h-4 w-4" />
-							) : (
-								<Moon className="h-4 w-4" />
-							)}
-							<span className="sr-only">{themeButtonLabel}</span>
+						<button type="button" onClick={toggleTheme} aria-label={themeLabel} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-9 px-0" })}>
+							{theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
 						</button>
-						<button
-							type="button"
-							className={buttonVariants({ variant: "ghost", size: "sm" })}
-							onClick={() => setMobileMenuOpen(true)}
-							aria-label="Open menu"
-							aria-expanded={mobileMenuOpen}
-							aria-controls="site-navigation-drawer"
-						>
-							<Menu className="h-5 w-5" />
+						<button type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-9 px-0" })}>
+							{mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
 						</button>
 					</div>
 				</div>
 			</header>
 
-			<div
-				className={cn(
-					"fixed inset-0 z-50 bg-black/40 transition-opacity md:hidden",
-					mobileMenuOpen
-						? "pointer-events-auto opacity-100"
-						: "pointer-events-none opacity-0",
-				)}
-				onClick={() => setMobileMenuOpen(false)}
-			/>
-
-			<aside
-				id="site-navigation-drawer"
-				className={cn(
-					"fixed inset-x-2 top-20 z-[60] max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-xl border border-border/90 bg-background/95 p-5 shadow-2xl backdrop-blur transition-all md:hidden",
-					mobileMenuOpen
-						? "translate-y-0 opacity-100"
-						: "pointer-events-none -translate-y-2 opacity-0",
-				)}
-			>
-				<div className="mb-8 flex items-center justify-between">
-					<p className="font-heading text-base font-semibold">Navigation</p>
-					<button
-						type="button"
-						className={buttonVariants({ variant: "ghost", size: "sm" })}
-						onClick={() => setMobileMenuOpen(false)}
-						aria-label="Close menu"
-					>
-						<X className="h-4 w-4" />
-					</button>
-				</div>
-
-				<nav className="space-y-2">
+			<div className={cn("fixed inset-x-0 top-[4.5rem] z-40 border-b border-border bg-background px-5 py-6 shadow-soft transition md:hidden", mobileMenuOpen ? "translate-y-0 opacity-100" : "pointer-events-none -translate-y-3 opacity-0")}>
+				<nav className="mx-auto grid max-w-6xl gap-1" aria-label="Mobile navigation">
 					{navItems.map((item) => (
-						<Link
-							key={item.href}
-							href={item.href}
-							className={cn(
-								"block rounded-md px-3 py-2 text-sm font-medium",
-								pathname === item.href
-									? "bg-card text-foreground"
-									: "text-muted hover:text-foreground",
-							)}
-							onClick={() => setMobileMenuOpen(false)}
-						>
+						<Link key={item.href} href={item.href} className={cn("rounded-md px-3 py-3 text-base font-semibold", pathname === item.href ? "bg-primary/10 text-primary" : "text-foreground")}>
 							{item.label}
 						</Link>
 					))}
+					<a href={portfolioData.profile.contact.resumePath} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "primary", size: "md", className: "mt-4 w-full" })}>
+						<Download className="h-4 w-4" /> Download resume
+					</a>
 				</nav>
-
-				<div className="mt-8 space-y-2">
-					<a
-						href={`mailto:${portfolioData.profile.contact.email}`}
-						className={buttonVariants({
-							variant: "primary",
-							size: "md",
-							className: "w-full",
-						})}
-					>
-						<Mail className="h-4 w-4" />
-						Contact me
-					</a>
-					<a
-						href={portfolioData.profile.contact.resumePath}
-						target="_blank"
-						rel="noreferrer"
-						className={buttonVariants({
-							variant: "outline",
-							size: "md",
-							className: "w-full",
-						})}
-					>
-						<Download className="h-4 w-4" />
-						Download Resume
-					</a>
-				</div>
-			</aside>
+			</div>
 		</>
 	);
 }

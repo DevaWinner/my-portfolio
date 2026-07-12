@@ -7,30 +7,16 @@ interface PageHeroProps {
 	actions?: ReactNode;
 }
 
-export function PageHero({
-	title,
-	description,
-	kicker,
-	actions,
-}: PageHeroProps) {
+export function PageHero({ title, description, kicker, actions }: PageHeroProps) {
 	return (
-		<section className="container pb-6 pt-10 sm:py-14">
-			{kicker ? (
-				<p className="text-sm font-semibold uppercase tracking-[0.18em] text-primary">
-					{kicker}
-				</p>
-			) : null}
-			<h1 className="mt-3 max-w-4xl font-heading text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-				{title}
-			</h1>
-			<p className="mt-4 max-w-3xl text-base leading-relaxed text-muted sm:text-lg">
-				{description}
-			</p>
-			{actions ? (
-				<div className="mt-6 flex flex-wrap items-center gap-3 sm:mt-7">
-					{actions}
-				</div>
-			) : null}
+		<section className="relative overflow-hidden border-b border-border/70 py-14 sm:py-20">
+			<div className="page-grid pointer-events-none absolute inset-0" />
+			<div className="container relative">
+				{kicker ? <p className="eyebrow">{kicker}</p> : null}
+				<h1 className="mt-5 max-w-4xl text-balance font-heading text-4xl font-bold leading-[1.03] sm:text-5xl lg:text-6xl">{title}</h1>
+				<p className="mt-6 max-w-2xl text-base leading-7 text-muted sm:text-lg">{description}</p>
+				{actions ? <div className="mt-8 flex flex-wrap items-center gap-3">{actions}</div> : null}
+			</div>
 		</section>
 	);
 }
