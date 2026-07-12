@@ -46,9 +46,9 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={`${monaSans.variable} bg-background text-foreground antialiased`}>
-        <div className="relative flex min-h-screen flex-col">
+        <div className="relative flex min-h-screen flex-col pb-24 xl:pb-0">
           <SiteHeader />
-          <main className="flex-1 pt-[4.5rem]">{children}</main>
+          <main className="flex-1">{children}</main>
           <SiteFooter />
         </div>
       </body>

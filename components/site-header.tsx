@@ -2,17 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Download, Mail, Menu, Moon, Sun, X } from "lucide-react";
+import { BriefcaseBusiness, FolderKanban, Home, Mail, Moon, Sun, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { buttonVariants } from "@/components/ui/button";
 import { portfolioData } from "@/lib/portfolio-data";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-	{ href: "/projects", label: "Work" },
-	{ href: "/experience", label: "Experience" },
-	{ href: "/about", label: "About" },
+	{ href: "/", label: "Home", mobileLabel: "Home", icon: Home },
+	{ href: "/projects", label: "Work", mobileLabel: "Work", icon: FolderKanban },
+	{ href: "/experience", label: "Experience", mobileLabel: "Career", icon: BriefcaseBusiness },
+	{ href: "/about", label: "About", mobileLabel: "About", icon: UserRound },
 ];
 
 type ThemeMode = "light" | "dark";
@@ -26,19 +26,9 @@ function getResolvedTheme(): ThemeMode {
 
 export function SiteHeader() {
 	const pathname = usePathname();
-	const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 	const [theme, setTheme] = useState<ThemeMode>("light");
 
 	useEffect(() => setTheme(getResolvedTheme()), []);
-	useEffect(() => setMobileMenuOpen(false), [pathname]);
-	useEffect(() => {
-		if (!mobileMenuOpen) return;
-		function closeOnEscape(event: KeyboardEvent) {
-			if (event.key === "Escape") setMobileMenuOpen(false);
-		}
-		window.addEventListener("keydown", closeOnEscape);
-		return () => window.removeEventListener("keydown", closeOnEscape);
-	}, [mobileMenuOpen]);
 
 	function toggleTheme() {
 		const nextTheme = theme === "dark" ? "light" : "dark";
@@ -55,63 +45,54 @@ export function SiteHeader() {
 
 	return (
 		<>
-			<header className="fixed inset-x-0 top-0 z-40 border-b border-border bg-background">
-				<div className="container flex h-[4.5rem] items-center justify-between gap-6">
-					<Link href="/" className="focus-ring flex min-w-0 items-center gap-3 rounded-md" aria-label="Aniekan Winner Anietie, home">
-						<span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-brand text-sm font-bold text-brand-foreground">AW</span>
-						<span className="min-w-0">
-							<span className="block truncate text-sm font-semibold leading-tight">Aniekan Winner</span>
-							<span className="type-label mt-0.5 hidden text-muted sm:block">Engineer &amp; founder</span>
-						</span>
+			<aside className="fixed right-3 top-1/2 z-40 hidden w-14 -translate-y-1/2 xl:block" aria-label="Site controls">
+				<div className="overflow-visible rounded-2xl border border-border bg-background p-1.5 shadow-overlay">
+					<Link href="/" className="focus-ring grid h-11 place-items-center rounded-xl bg-brand text-xs font-bold text-brand-foreground" aria-label="Aniekan Winner, home">
+						AW
 					</Link>
 
-					<div className="hidden items-center gap-2 md:flex">
-						<nav className="flex items-center" aria-label="Primary navigation">
-							{navItems.map((item) => {
-								const active = pathname === item.href;
-								return (
-									<Link key={item.href} href={item.href} className={cn("focus-ring relative rounded-md px-3 py-3 text-sm font-semibold text-muted transition-colors duration-150 hover:text-foreground", active && "text-primary after:absolute after:inset-x-3 after:bottom-1.5 after:h-0.5 after:rounded-full after:bg-primary")} aria-current={active ? "page" : undefined}>
-										{item.label}
-									</Link>
-								);
-							})}
-						</nav>
-						<button type="button" onClick={toggleTheme} aria-label={themeLabel} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-11 px-0" })}>
-							{theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-						</button>
-						<a href={`mailto:${portfolioData.profile.contact.email}`} className={buttonVariants({ variant: "primary", size: "sm" })}>
-							<Mail className="h-4 w-4" /> Contact
-						</a>
-					</div>
-
-					<div className="flex items-center gap-1 md:hidden">
-						<button type="button" onClick={toggleTheme} aria-label={themeLabel} className={buttonVariants({ variant: "ghost", size: "sm", className: "w-11 px-0" })}>
-							{theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-						</button>
-						<button type="button" onClick={() => setMobileMenuOpen((open) => !open)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" className={buttonVariants({ variant: "ghost", size: "sm", className: "w-11 px-0" })}>
-							{mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-						</button>
-					</div>
-				</div>
-			</header>
-
-			{mobileMenuOpen ? (
-				<div id="mobile-navigation" className="fixed inset-x-0 top-[4.5rem] z-30 border-b border-border bg-background px-5 py-6 shadow-overlay md:hidden">
-					<nav className="mx-auto grid max-w-6xl gap-1" aria-label="Mobile navigation">
-						{navItems.map((item) => (
-							<Link key={item.href} href={item.href} className={cn("focus-ring rounded-lg px-4 py-3 text-base font-semibold", pathname === item.href ? "bg-card text-primary" : "text-foreground")} aria-current={pathname === item.href ? "page" : undefined}>
-								{item.label}
-							</Link>
-						))}
-						<a href={`mailto:${portfolioData.profile.contact.email}`} className={buttonVariants({ variant: "primary", size: "md", className: "mt-4 w-full" })}>
-							<Mail className="h-4 w-4" /> Contact me
-						</a>
-						<a href={portfolioData.profile.contact.resumePath} target="_blank" rel="noreferrer" className={buttonVariants({ variant: "outline", size: "md", className: "w-full" })}>
-							<Download className="h-4 w-4" /> Download resume
-						</a>
+					<nav className="mt-1.5 border-t border-border pt-1.5" aria-label="Primary navigation">
+						{navItems.map((item) => {
+							const active = pathname === item.href;
+							const Icon = item.icon;
+							return (
+								<Link key={item.href} href={item.href} className={cn("focus-ring group relative grid h-11 place-items-center rounded-xl text-muted transition-colors hover:bg-card hover:text-foreground", active && "bg-card text-primary")} aria-label={item.label} aria-current={active ? "page" : undefined}>
+									<Icon className="h-4 w-4" />
+									<span className="pointer-events-none absolute right-full mr-3 rounded-md bg-inverse px-3 py-2 text-xs font-semibold text-inverse-foreground opacity-0 shadow-overlay transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">{item.label}</span>
+								</Link>
+							);
+						})}
 					</nav>
+
+					<div className="mt-1.5 grid gap-1 border-t border-border pt-1.5">
+						<a href={`mailto:${portfolioData.profile.contact.email}`} className="focus-ring group relative grid h-11 place-items-center rounded-xl text-primary transition-colors hover:bg-card" aria-label="Contact me">
+							<Mail className="h-4 w-4" />
+							<span className="pointer-events-none absolute right-full mr-3 rounded-md bg-inverse px-3 py-2 text-xs font-semibold text-inverse-foreground opacity-0 shadow-overlay transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">Contact</span>
+						</a>
+						<button type="button" onClick={toggleTheme} aria-label={themeLabel} className="focus-ring group relative grid h-11 place-items-center rounded-xl text-foreground transition-colors hover:bg-card">
+							{theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+							<span className="pointer-events-none absolute right-full mr-3 whitespace-nowrap rounded-md bg-inverse px-3 py-2 text-xs font-semibold text-inverse-foreground opacity-0 shadow-overlay transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">{theme === "dark" ? "Light mode" : "Dark mode"}</span>
+						</button>
+					</div>
 				</div>
-			) : null}
+			</aside>
+
+			<nav className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-5 gap-1 rounded-2xl border border-border bg-background p-1.5 shadow-overlay xl:hidden" aria-label="Primary navigation">
+				{navItems.map((item) => {
+					const active = pathname === item.href;
+					const Icon = item.icon;
+					return (
+						<Link key={item.href} href={item.href} className={cn("focus-ring flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1 py-2 text-xs font-semibold text-muted transition-colors hover:bg-card hover:text-foreground", active && "bg-brand text-brand-foreground hover:bg-brand hover:text-brand-foreground")} aria-current={active ? "page" : undefined}>
+							<Icon className="h-4 w-4 shrink-0" />
+							<span className="max-w-full truncate">{item.mobileLabel}</span>
+						</Link>
+					);
+				})}
+				<button type="button" onClick={toggleTheme} aria-label={themeLabel} className="focus-ring flex min-w-0 flex-col items-center justify-center gap-1 rounded-xl px-1 py-2 text-xs font-semibold text-muted transition-colors hover:bg-card hover:text-foreground">
+					{theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+					<span>Theme</span>
+				</button>
+			</nav>
 		</>
 	);
 }
